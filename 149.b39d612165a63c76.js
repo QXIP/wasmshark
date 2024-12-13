@@ -81,16 +81,17 @@ module.exports = _asyncToGenerator, module.exports.__esModule = true, module.exp
 //   const response = `worker response to ${data}`;
 //   postMessage(response);
 // });
+var _asyncToGenerator = (__webpack_require__(/*! ./node_modules/@babel/runtime/helpers/asyncToGenerator.js */ 5386)["default"]);
+const BASE_URL_WIREGASM_LIB = 'wiregasm-lib/';
 // load the Wiregasm library and pako
 //
 // pako is only used to inflate the compressed wasm and data files
 // if you are not compressing the wasm and data files, you do not need to include pako
 //
 // import * from '../wiregasm-lib'
-// import wiregasm from "../wiregasm-lib/wiregasm.js";
-// import pako from "../wiregasm-lib/pako.js";
-var _asyncToGenerator = (__webpack_require__(/*! ./node_modules/@babel/runtime/helpers/asyncToGenerator.js */ 5386)["default"]);
-importScripts("../wiregasm-lib/wiregasm.js", "../wiregasm-lib/pako.js");
+// import wiregasm from BASE_URL_WIREGASM_LIB + "wiregasm.js";
+// import pako from BASE_URL_WIREGASM_LIB + "pako.js";
+importScripts(BASE_URL_WIREGASM_LIB + "wiregasm.js", BASE_URL_WIREGASM_LIB + "pako.js");
 let lib = null;
 let uploadDir = null;
 let currentSession = null;
@@ -107,7 +108,7 @@ const inflateRemoteBuffer = /*#__PURE__*/function () {
 const fetchPackages = /*#__PURE__*/function () {
   var _ref2 = _asyncToGenerator(function* () {
     console.log("Fetching packages");
-    let [wasm, data] = yield Promise.all([yield inflateRemoteBuffer("../wiregasm-lib/wiregasm.wasm.gz"), yield inflateRemoteBuffer("../wiregasm-lib/wiregasm.data.gz")]);
+    let [wasm, data] = yield Promise.all([yield inflateRemoteBuffer(BASE_URL_WIREGASM_LIB + "wiregasm.wasm.gz"), yield inflateRemoteBuffer(BASE_URL_WIREGASM_LIB + "wiregasm.data.gz")]);
     return {
       wasm,
       data
@@ -266,4 +267,4 @@ onmessage = function (event) {
 
 /******/ })()
 ;
-//# sourceMappingURL=149.bdad45d6398d9a4e.js.map
+//# sourceMappingURL=149.b39d612165a63c76.js.map
