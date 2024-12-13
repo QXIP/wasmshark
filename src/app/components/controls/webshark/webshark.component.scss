@@ -1,0 +1,110 @@
+:host ::ng-deep .mat-tree-node {
+  min-height: 24px;
+  font-family: monospace;
+  font-size: 10pt;
+  margin-bottom: -1px;
+  overflow-wrap: anywhere;
+  justify-content: space-between;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}
+
+:host ::ng-deep .mat-icon-button {
+  margin: -0.5rem 0;
+  transform: scale(0.7);
+}
+
+:host ::ng-deep table.this-table {
+  table-layout: initial !important;
+}
+
+:host ::ng-deep table.this-table tr {
+  height: 30px !important;
+}
+
+:host ::ng-deep table.this-table th.mat-header-cell,
+:host ::ng-deep table.this-table td.mat-cell {
+  padding: 0 5px !important;
+}
+.mat-mdc-list-item-icon {
+  color: rgba(0, 0, 0, 0.54);
+}
+:host {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  .list-item-hover {
+    height: 3rem;
+    cursor: pointer;
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+  }
+  .field-sticky {
+    font-family: monospace;
+    top: 0px;
+    left: 0px;
+    position: sticky;
+    background-color: white;
+    width: 100%;
+    z-index: 1;
+    padding: 0.5rem;
+    border: 0;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+  }
+
+  .flex-container {
+    display: flex;
+    align-items: stretch;
+    background: aliceblue;
+    // height: 50%;
+    // max-height: 50%;
+    max-width: 100vw;
+    align-content: stretch;
+    overflow: hidden;
+    flex-direction: column;
+    // min-height: calc(100vh - 5rem);
+
+    & > div {
+      transition: all 0.3s;
+      // transition-delay: 1s;
+      flex: 1;
+      overflow: auto;
+      height: 100%;
+      // margin: 1px;
+      // padding: 1px;
+      // border: 1px solid #999;
+
+      .line-html {
+        // flex: 1;
+        // white-space: nowrap;
+        // overflow: hidden;
+        // text-overflow: ellipsis;
+      }
+
+      // &:hover {
+      //     flex: 10;
+      // }
+    }
+  }
+}
+
+:host ::ng-deep .as-split-gutter-icon {
+  transition: background-color 0.6s;
+
+  &:hover {
+    background-color: #3f51b5;
+  }
+}
+
+.no-data {
+  padding: 5rem;
+  width: 100%;
+  text-align: center;
+  font-size: xx-large;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.3);
+}

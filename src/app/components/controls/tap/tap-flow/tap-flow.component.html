@@ -1,0 +1,60 @@
+<isData [noDataIf]="flowItems.length === 0">
+  <div style="position: relative; height:100%"
+    [style.min-width.px]="(1 + colLength * 2) * 100">
+    <mat-grid-list [cols]="1 + colLength*2 || 2"
+      gutterSize="0px"
+      rowHeight="42px"
+      style="position: sticky; top: 0px; z-index: 2;background-color: white; margin-top: -4px;">
+      <mat-grid-tile class="grid-content">time</mat-grid-tile>
+      <mat-grid-tile *ngFor="let host of hosts"
+        [colspan]="2"
+        class="grid-content">
+        <div>
+          <div>&nbsp;</div>
+          <div class="host">{{host}}</div>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-list [cols]="1 + colLength * 2"
+      [style.min-width.px]="(1 + colLength * 2) * 100"
+      gutterSize="0px"
+      style="position: absolute; top: 0; left: 0;right: 5px; bottom: 0;"
+      rowHeight="100%">
+      <mat-grid-tile *ngFor="let item of hosts"
+        [colspan]="2"
+        class="grid-content col-line"></mat-grid-tile>
+    </mat-grid-list>
+
+    <cdk-virtual-scroll-viewport [itemSize]="18"
+      style="height: calc(100% - 42px); width: 100%;">
+      <mat-grid-list [cols]="1 + colLength * 2"
+        gutterSize="0px"
+        rowHeight="50px">
+        <ng-container *cdkVirtualFor="let item of flowItems; let idx = index">
+          <mat-grid-tile class="grid-content"
+            [style.background-color]="'lightgray'">{{item.t}}</mat-grid-tile>
+          <mat-grid-tile class="grid-content"
+            (click)="setSelected(idx)"
+            [ngClass]="{'selected': getSelected(idx)}"
+            [colspan]="(getFrom(item.n)*2)+1"></mat-grid-tile>
+          <mat-grid-tile [colspan]="(getTo(item.n)-getFrom(item.n)) * 2 "
+            (click)="setSelected(idx)"
+            [ngClass]="{'selected': getSelected(idx)}"
+            class="grid-content item">
+            <div class="item-element">
+              <span>{{item.c}}</span>
+              <div class="arrow"
+                [ngClass]="{'left': getDirection(item.n)}"
+                [style.color]="getColor(item.pn)"></div>
+            </div>
+
+          </mat-grid-tile>
+          <mat-grid-tile class="grid-content"
+            [ngClass]="{'selected': getSelected(idx)}"
+            (click)="setSelected(idx)"
+            [colspan]="(colLength-getTo(item.n))*2-1"></mat-grid-tile>
+        </ng-container>
+      </mat-grid-list>
+    </cdk-virtual-scroll-viewport>
+  </div>
+</isData>

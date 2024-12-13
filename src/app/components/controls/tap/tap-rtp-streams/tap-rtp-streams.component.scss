@@ -1,0 +1,95 @@
+@use "sass:map";
+@use "@angular/material" as mat;
+@import "/src/theme.scss";
+$primary: map.get($my-theme, primary);
+$bgColor: rgba(black, 0.12);
+:host {
+  .table-row-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    // justify-content: space-between;
+    margin: 5px;
+    /* border: 2px solid red; */
+    border-radius: 0.5rem;
+    box-shadow: 1px 1px 8px -3px #000;
+    &:hover {
+      background-color: $bgColor;
+      cursor: pointer;
+    }
+    .table-row {
+      width: 200px;
+      min-width: 200px;
+      padding: 0.5rem;
+      background: rgba(0, 0, 0, 0.05);
+      margin: 4px;
+      border-radius: 4px;
+      // border: 1px solid #999;
+      > h3 {
+        display: inline-block;
+        font-weight: 500;
+        line-height: initial;
+        letter-spacing: inherit;
+        margin: 0;
+      }
+    }
+  }
+  .is-data-wrapper {
+    width: 100%;
+    display: block;
+  }
+  .player-card-data {
+    display: flex;
+    & > div {
+      padding: 0.5rem;
+    }
+  }
+  .player-card {
+    margin: 0.5rem;
+    flex: 5;
+    border: 5px solid transparent;
+    transition: all 0.3s;
+
+    .btn-close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    &.active {
+      flex: 7;
+      border-color: mat.get-color-from-palette($primary);
+    }
+
+    .player-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: white;
+      border-radius: 5rem;
+      margin: 0 auto;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -2.5rem;
+      border: 3px solid;
+      border-color: mat.get-color-from-palette($primary);
+      width: 14rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 10;
+      > * {
+        margin: 0.3rem;
+      }
+    }
+
+    &:hover {
+      .btn-close,
+      .player-controls {
+        opacity: 1;
+      }
+    }
+  }
+}

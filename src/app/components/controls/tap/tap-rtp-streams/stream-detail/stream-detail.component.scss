@@ -1,0 +1,18 @@
+.player-card-data {
+  display: flex;
+  & > div {
+    padding: 0.5rem;
+  }
+}
+.top-container {
+  display: flex;
+  margin-bottom: 3rem;
+  flex-direction: column;
+  // position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.labels ::ng-deep .mdc-checkbox {
+  display: none !important;
+}

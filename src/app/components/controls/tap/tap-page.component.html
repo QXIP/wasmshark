@@ -1,0 +1,18 @@
+<isData [inProgress]="loading" [noDataIf]="!jsonData">
+  <ng-container [ngSwitch]="type">
+    <ng-template ngSwitchCase="flow">
+      <tap-flow [data]="jsonData"></tap-flow>
+    </ng-template>
+
+    <ng-template ngSwitchCase="rtp-streams">
+      <tap-rtp-streams [data]="jsonData"></tap-rtp-streams>
+    </ng-template>
+
+    <ng-template ngSwitchDefault>
+
+      <chart-and-table [data]="jsonData"></chart-and-table>
+      <tree-filter [jsonData]="jsonData"
+      [isFilter]="false"></tree-filter>
+    </ng-template>
+  </ng-container>
+</isData>

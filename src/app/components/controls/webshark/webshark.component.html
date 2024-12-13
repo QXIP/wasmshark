@@ -1,0 +1,96 @@
+<div *ngIf="!(dataTree.length > 0) && !(detailsTable.length > 0)" style="flex: 1;">
+  <div style="padding: 2rem">
+    <div style="min-width: 200px; margin-bottom: 1rem" [style.height]="true || isKIOSK ? '60vh' : '100px'">
+      <pcap-uploader [autoUpload]="true"></pcap-uploader>
+    </div>
+    <mat-list *ngIf="false && !isKIOSK">
+      <h1 mat-subheader>Files</h1>
+      <div *ngFor="let note of fileList" class="list-item-hover" (click)="onClickFile(note.name)">
+        <mat-list-item>
+          <mat-divider></mat-divider>
+          <div style="height: 5px"></div>
+          <mat-icon mat-list-icon color="primary" style="
+              float: left;
+              margin: 0px 12px;
+              font-size: 40px;
+              width: 40px;
+              height: 40px;
+            ">note</mat-icon>
+          <div mat-line>
+            <strong>{{ note.name }}</strong>
+          </div>
+          <div mat-line>{{ note.size }} bytes</div>
+        </mat-list-item>
+      </div>
+    </mat-list>
+  </div>
+</div>
+<div class="flex-container" style="flex: 1;" *ngIf="!(!(dataTree.length > 0) && !(detailsTable.length > 0))">
+  <isData style="flex: 1;" [noDataIf]="!(dataTree.length > 0) && !(detailsTable.length > 0)">
+    <div style="
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
+        height: 100%;
+      ">
+      <app-menu-stat style="flex: 0;"></app-menu-stat>
+      <div style="flex:1; overflow: hidden;">
+
+        <as-split [direction]="framePosition[0]" [gutterSize]="5">
+          <as-split-area [size]="50">
+            <div #tableDiv style="height: 100%; display: flex; flex-direction: column;">
+              <input
+                matInput
+                class="field-sticky"
+                style="flex: 0; padding: 1rem;"
+                type="text"
+                autocomplete="off"
+                placeholder="Apply a display filter"
+                [(ngModel)]="textFilterGrid"
+                (keydown.enter)="onFilterEnter()"
+              />
+              <app-custom-table
+                [details]="filterGrid(detailsTable)"
+                [columns]="columnsTable"
+                [isSelectedByClick]="true"
+                [isPaginator]="false"
+                (rowClick)="showMessage($event)"
+                (rowDblClick)="openDetails($event)"
+                style="flex: 1;"
+                #dataGridTable
+              ></app-custom-table>
+            </div>
+          </as-split-area>
+          <as-split-area [size]="50">
+            <as-split [direction]="framePosition[1]" [gutterSize]="5">
+              <as-split-area [size]="50">
+                <tree-filter
+                  *ngIf="dataTree && dataTree.length > 0"
+                  [data]="dataTree"
+                  style="flex: 1; overflow: auto"
+                  (clickRow)="onSelected($event)"
+                  [isFilter]="true"
+                  [selectedHexArray]="selectedHexArray"
+                  (filter)="setFilter($event)"
+                ></tree-filter>
+                <h1
+                  class="no-data"
+                  *ngIf="!dataTree || (dataTree && dataTree.length === 0)"
+                >
+                  No Data
+                </h1>
+              </as-split-area>
+              <as-split-area [size]="50">
+                <app-frame-hex
+                  [b64data]="frameHexDataBase64"
+                  (onSelectedHex)="onSelectedHex($event)"
+                  style="flex: 1"
+                ></app-frame-hex>
+              </as-split-area>
+            </as-split>
+          </as-split-area>
+        </as-split>
+      </div>
+    </div>
+  </isData>
+</div>
