@@ -5,7 +5,7 @@
 //   postMessage(response);
 // });
 
-
+const BASE_URL_WIREGASM_LIB = 'wiregasm-lib/';
 
 
 // load the Wiregasm library and pako
@@ -14,12 +14,12 @@
 // if you are not compressing the wasm and data files, you do not need to include pako
 //
 // import * from '../wiregasm-lib'
-// import wiregasm from "../wiregasm-lib/wiregasm.js";
-// import pako from "../wiregasm-lib/pako.js";
+// import wiregasm from BASE_URL_WIREGASM_LIB + "wiregasm.js";
+// import pako from BASE_URL_WIREGASM_LIB + "pako.js";
 
 importScripts(
-  "../wiregasm-lib/wiregasm.js",
-  "../wiregasm-lib/pako.js"
+  BASE_URL_WIREGASM_LIB + "wiregasm.js",
+  BASE_URL_WIREGASM_LIB + "pako.js"
 );
 
 
@@ -40,10 +40,10 @@ const fetchPackages = async () => {
   console.log("Fetching packages");
   let [wasm, data] = await Promise.all([
     await inflateRemoteBuffer(
-      "../wiregasm-lib/wiregasm.wasm.gz"
+      BASE_URL_WIREGASM_LIB + "wiregasm.wasm.gz"
     ),
     await inflateRemoteBuffer(
-      "../wiregasm-lib/wiregasm.data.gz"
+      BASE_URL_WIREGASM_LIB + "wiregasm.data.gz"
     ),
   ]);
 
