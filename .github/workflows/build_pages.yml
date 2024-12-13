@@ -32,7 +32,7 @@ jobs:
       run: npm run build --prod
       
     - name: Deploy to Pages 🚀
-      uses: JamesIves/github-pages-deploy-action@v4
+      uses: JamesIves/github-pages-deploy-action@v4.7.2
       with:
         branch: gh-pages
-        folder: dist/webshark
+        folder: dist
