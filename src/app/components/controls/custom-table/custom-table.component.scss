@@ -1,0 +1,45 @@
+$bgColor: rgba(black, 0.12);
+
+table.this-table {
+  table-layout: fixed;
+  // width: 100%;
+  // max-width: 100%;
+
+  & tr {
+    transition: background-color 0.3s;
+    height: 38px;
+
+    &:hover {
+      background-color: $bgColor;
+      cursor: pointer;
+    }
+  }
+
+  & th,
+  & td {
+    // padding: 1rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    border-bottom: 1px solid rgb(0 0 0 / 20%);
+  }
+}
+
+.mat-row {
+  &:nth-child(2n+1) {
+    background-color: #e4f0ec;
+  }
+
+  &:not(:nth-child(2n+1)) {
+    background-color: #ffffff;
+  }
+}
+.itemSelected {
+  background-color: #3f51b5 !important;
+  color: #fff !important;
+}
+.search-input {
+  border: 0;
+  background-color: $bgColor;
+  outline: none;
+}

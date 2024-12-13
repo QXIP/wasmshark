@@ -1,0 +1,65 @@
+.init-status-wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  backdrop-filter: blur(10px);
+  transition: all 0.6s;
+}
+
+.progress-upload {
+  position: absolute;
+  background: white;
+  padding: 2rem 4rem;
+  z-index: 999;
+  border-radius: 0.5rem;
+  box-shadow: 2px 1px 20px -7px #000;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  display: block;
+  width: 450px;
+  height: 100px;
+  text-align: center;
+  overflow: hidden;
+
+  .progress-bar {
+    background-color: rgba(100, 100, 255, 0.5);
+    position: absolute;
+    width: 0%;
+    height: 100px;
+    left: 0;
+    top: 0;
+    backdrop-filter: invert(1);
+  }
+}
+
+.init-status-wrapper.ready {
+  backdrop-filter: blur(0px);
+}
+
+.init-status {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 400px;
+  min-height: 50px;
+  height: 400px;
+  padding: 2rem;
+  z-index: 999;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 15px #bbb;
+}
+
+.init-status>div {
+  text-align: left;
+  font-size: 16pt;
+  height: 50px;
+}
