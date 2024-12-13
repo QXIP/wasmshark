@@ -29,7 +29,7 @@ jobs:
       run: npm ci
       
     - name: Build
-      run: npm run build --prod
+      run: npx ng build --configuration=production --base-href=/wasmshark/
       
     - name: Deploy to Pages 🚀
       uses: JamesIves/github-pages-deploy-action@v4.7.2
