@@ -13,8 +13,7 @@ import { WiregasmService } from './services/wiregasm.service';
   </div>
   <div class="init-status-wrapper" [ngClass]="{ready: isReady}" [hidden]="done">
     <div class="init-status">
-      <h1><strong>Wiregasm:</strong></h1>
-      <div *ngFor="let item of msg">{{item}}</div>
+      <div *ngFor="let item of msg">WASM-LIB: {{item || '. . .'}}</div>
     </div>
   </div>
   <router-outlet></router-outlet>`,
@@ -22,18 +21,17 @@ import { WiregasmService } from './services/wiregasm.service';
 
 })
 export class AppComponent {
-  msg: string[] = [];
+  msg: string[] = [' '];
   done = false;
   isReady = false;
   parsingProgress = 100;
   constructor(private wiregasmService: WiregasmService) {
     this.wiregasmService.listen().subscribe(data => {
-      console.log('wiregasmService.listen', data);
       if (data?.isParsing) {
         this.parsingProgress = +data?.parsingProgress?.toFixed(2);
       }
       if (data?.status) {
-        this.msg.push(data.status)
+        this.msg = [data.status];
       }
       if (data?.type === 'init') {
         this.isReady = true;

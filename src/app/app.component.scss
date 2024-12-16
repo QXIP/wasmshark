@@ -44,22 +44,16 @@
 
 .init-status {
   position: absolute;
-  top: 0;
   bottom: 0;
-  left: 0;
-  right: 0;
   margin: auto;
-  width: 400px;
-  min-height: 50px;
-  height: 400px;
-  padding: 2rem;
+  width: 100%;
+  color: #fff;
+  padding: 0.5rem;
   z-index: 999;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: #3f51b5;
   box-shadow: 0 0 15px #bbb;
 }
 
 .init-status>div {
   text-align: left;
-  font-size: 16pt;
-  height: 50px;
 }
