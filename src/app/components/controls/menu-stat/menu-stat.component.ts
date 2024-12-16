@@ -44,7 +44,7 @@ export class MenuStatComponent implements OnInit {
         {
           name: 'Misc', children: [
             {
-              name: 'RTP Rteams',
+              name: 'RTP Streams',
               type: 'rtp-streams',
               jsonData: {}
             },

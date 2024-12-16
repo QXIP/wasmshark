@@ -13,7 +13,7 @@ import { WiregasmService } from './services/wiregasm.service';
   </div>
   <div class="init-status-wrapper" [ngClass]="{ready: isReady}" [hidden]="done">
     <div class="init-status">
-      <div *ngFor="let item of msg">WASM-LIB: {{item || '. . .'}}</div>
+      <div *ngFor="let item of msg">WASM-LIB: {{item }}</div>
     </div>
   </div>
   <router-outlet></router-outlet>`,
@@ -21,7 +21,7 @@ import { WiregasmService } from './services/wiregasm.service';
 
 })
 export class AppComponent {
-  msg: string[] = [' '];
+  msg: string[] = ['Loading ...'];
   done = false;
   isReady = false;
   parsingProgress = 100;
