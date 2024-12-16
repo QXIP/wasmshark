@@ -2,7 +2,7 @@
   <button mat-button>loading...</button>
 </div>
 <div *ngIf="menuTree">
-  <a href="/">
+  <a (click)="gotoUploadPage()">
     <!-- <button mat-icon-button> -->
     <mat-icon mat-list-icon color="primary" style="margin: 5px; float: left"
       >note</mat-icon
@@ -11,7 +11,7 @@
   </a>
   <button
     mat-button
-    *ngFor="let item of [m01, m02, m03, m04, m05]; let idx = index"
+    *ngFor="let item of [m05]; let idx = index"
     [matMenuTriggerFor]="item"
   >
     {{ menuTree[idx].name }}

@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { WebSharkDataService } from '@app/services/web-shark-data.service';
 import { ModalResizableService } from '../modal-resizable/modal-resizable.service';
 import { WiregasmService } from '@app/services/wiregasm.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu-stat',
@@ -14,7 +15,8 @@ export class MenuStatComponent implements OnInit {
   constructor(
     private webSharkDataService: WiregasmService,
     private modalResizableService: ModalResizableService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private router: Router
   ) { }
 
   async ngOnInit() {
@@ -37,14 +39,14 @@ export class MenuStatComponent implements OnInit {
       } = info;
 
       const menuCollection = [
-        { name: 'Endpoints', children: [...convs] },
+        { name: 'Misc', children: [...convs] },
         { name: 'Response Time', children: [...srt, ...rtd] },
         { name: 'Statistics', children: [...stats, ...nstat] },
         { name: 'Export Objects', children: [...eo] },
         {
           name: 'Misc', children: [
             {
-              name: 'RTP Rteams',
+              name: 'RTP Streams',
               type: 'rtp-streams',
               jsonData: {}
             },
@@ -66,5 +68,8 @@ export class MenuStatComponent implements OnInit {
       this.menuTree = [];
       console.error(err);
     }
+  }
+  gotoUploadPage() {
+    location.reload();
   }
 }
