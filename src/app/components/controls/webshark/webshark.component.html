@@ -3,7 +3,7 @@
     <div style="min-width: 200px; margin-bottom: 1rem" [style.height]="true || isKIOSK ? '60vh' : '100px'">
       <pcap-uploader [autoUpload]="true"></pcap-uploader>
     </div>
-    <mat-list *ngIf="false && !isKIOSK">
+    <!-- <mat-list *ngIf="false && !isKIOSK">
       <h1 mat-subheader>Files</h1>
       <div *ngFor="let note of fileList" class="list-item-hover" (click)="onClickFile(note.name)">
         <mat-list-item>
@@ -22,7 +22,7 @@
           <div mat-line>{{ note.size }} bytes</div>
         </mat-list-item>
       </div>
-    </mat-list>
+    </mat-list> -->
   </div>
 </div>
 <div class="flex-container" style="flex: 1;" *ngIf="!(!(dataTree.length > 0) && !(detailsTable.length > 0))">
