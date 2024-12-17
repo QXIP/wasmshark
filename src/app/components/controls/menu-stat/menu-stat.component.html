@@ -4,61 +4,35 @@
 <div *ngIf="menuTree">
   <a (click)="gotoUploadPage()">
     <!-- <button mat-icon-button> -->
-    <mat-icon mat-list-icon color="primary" style="margin: 5px; float: left"
-      >note</mat-icon
-    >
+    <mat-icon mat-list-icon color="primary" style="margin: 5px; float: left">note</mat-icon>
     <!-- </button> -->
   </a>
-  <button
-    mat-button
-    *ngFor="let item of [m05]; let idx = index"
-    [matMenuTriggerFor]="item"
-  >
+  <button mat-button *ngFor="let item of [m01,m02,m03,m04,m05]; let idx = index" [matMenuTriggerFor]="item">
     {{ menuTree[idx].name }}
   </button>
 
   <mat-menu #m01="matMenu">
-    <button
-      mat-menu-item
-      *ngFor="let item of menuTree[0].children; let idx = index"
-      (click)="onMenuClick(item)"
-    >
+    <button mat-menu-item *ngFor="let item of menuTree[0].children; let idx = index" (click)="onMenuClick(item)">
       {{ item.name }}
     </button>
   </mat-menu>
   <mat-menu #m02="matMenu">
-    <button
-      mat-menu-item
-      *ngFor="let item of menuTree[1].children; let idx = index"
-      (click)="onMenuClick(item)"
-    >
+    <button mat-menu-item *ngFor="let item of menuTree[1].children; let idx = index" (click)="onMenuClick(item)">
       {{ item.name }}
     </button>
   </mat-menu>
   <mat-menu #m03="matMenu">
-    <button
-      mat-menu-item
-      *ngFor="let item of menuTree[2].children; let idx = index"
-      (click)="onMenuClick(item)"
-    >
+    <button mat-menu-item *ngFor="let item of menuTree[2].children; let idx = index" (click)="onMenuClick(item)">
       {{ item.name }}
     </button>
   </mat-menu>
   <mat-menu #m04="matMenu">
-    <button
-      mat-menu-item
-      *ngFor="let item of menuTree[3].children; let idx = index"
-      (click)="onMenuClick(item)"
-    >
+    <button mat-menu-item *ngFor="let item of menuTree[3].children; let idx = index" (click)="onMenuClick(item)">
       {{ item.name }}
     </button>
   </mat-menu>
   <mat-menu #m05="matMenu">
-    <button
-      mat-menu-item
-      *ngFor="let item of menuTree[4].children; let idx = index"
-      (click)="onMenuClick(item)"
-    >
+    <button mat-menu-item *ngFor="let item of menuTree[4].children; let idx = index" (click)="onMenuClick(item)">
       {{ item.name }}
     </button>
   </mat-menu>
