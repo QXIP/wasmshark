@@ -1,18 +1,16 @@
-<isData [inProgress]="loading" [noDataIf]="!jsonData">
+<isData [inProgress]="loading" [noDataIf]="!jsonData && !(type == 'rtp-streams' || type === 'seqa:any')">
   <ng-container [ngSwitch]="type">
-    <ng-template ngSwitchCase="flow">
-      <tap-flow [data]="jsonData"></tap-flow>
+    <ng-template ngSwitchCase="seqa:any">
+      <tap-flow [data]="jsonData || []"></tap-flow>
     </ng-template>
 
     <ng-template ngSwitchCase="rtp-streams">
-      <tap-rtp-streams [data]="jsonData"></tap-rtp-streams>
+      <tap-rtp-streams [data]="jsonData || []"></tap-rtp-streams>
     </ng-template>
 
     <ng-template ngSwitchDefault>
-
       <chart-and-table [data]="jsonData"></chart-and-table>
-      <tree-filter [jsonData]="jsonData"
-      [isFilter]="false"></tree-filter>
+      <tree-filter [jsonData]="jsonData" [isFilter]="false"></tree-filter>
     </ng-template>
   </ng-container>
 </isData>

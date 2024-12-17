@@ -1,0 +1,1979 @@
+{
+    "columns": [
+        {
+            "name": "Absolute date, as YYYY-MM-DD, and time",
+            "format": "%Yt"
+        },
+        {
+            "name": "Absolute date, as YYYY/DOY, and time",
+            "format": "%YDOYt"
+        },
+        {
+            "name": "Absolute time",
+            "format": "%At"
+        },
+        {
+            "name": "Cumulative Bytes",
+            "format": "%B"
+        },
+        {
+            "name": "Custom",
+            "format": "%Cus"
+        },
+        {
+            "name": "Delta time",
+            "format": "%Tt"
+        },
+        {
+            "name": "Delta time displayed",
+            "format": "%Gt"
+        },
+        {
+            "name": "Dest addr (resolved)",
+            "format": "%rd"
+        },
+        {
+            "name": "Dest addr (unresolved)",
+            "format": "%ud"
+        },
+        {
+            "name": "Dest port (resolved)",
+            "format": "%rD"
+        },
+        {
+            "name": "Dest port (unresolved)",
+            "format": "%uD"
+        },
+        {
+            "name": "Destination address",
+            "format": "%d"
+        },
+        {
+            "name": "Destination port",
+            "format": "%D"
+        },
+        {
+            "name": "Expert Info Severity",
+            "format": "%a"
+        },
+        {
+            "name": "FW-1 monitor if/direction",
+            "format": "%I"
+        },
+        {
+            "name": "Frequency/Channel",
+            "format": "%F"
+        },
+        {
+            "name": "Hardware dest addr",
+            "format": "%hd"
+        },
+        {
+            "name": "Hardware src addr",
+            "format": "%hs"
+        },
+        {
+            "name": "Hw dest addr (resolved)",
+            "format": "%rhd"
+        },
+        {
+            "name": "Hw dest addr (unresolved)",
+            "format": "%uhd"
+        },
+        {
+            "name": "Hw src addr (resolved)",
+            "format": "%rhs"
+        },
+        {
+            "name": "Hw src addr (unresolved)",
+            "format": "%uhs"
+        },
+        {
+            "name": "IEEE 802.11 RSSI",
+            "format": "%e"
+        },
+        {
+            "name": "IEEE 802.11 TX rate",
+            "format": "%x"
+        },
+        {
+            "name": "IP DSCP Value",
+            "format": "%f"
+        },
+        {
+            "name": "Information",
+            "format": "%i"
+        },
+        {
+            "name": "Net dest addr (resolved)",
+            "format": "%rnd"
+        },
+        {
+            "name": "Net dest addr (unresolved)",
+            "format": "%und"
+        },
+        {
+            "name": "Net src addr (resolved)",
+            "format": "%rns"
+        },
+        {
+            "name": "Net src addr (unresolved)",
+            "format": "%uns"
+        },
+        {
+            "name": "Network dest addr",
+            "format": "%nd"
+        },
+        {
+            "name": "Network src addr",
+            "format": "%ns"
+        },
+        {
+            "name": "Number",
+            "format": "%m"
+        },
+        {
+            "name": "Packet length (bytes)",
+            "format": "%L"
+        },
+        {
+            "name": "Protocol",
+            "format": "%p"
+        },
+        {
+            "name": "Relative time",
+            "format": "%Rt"
+        },
+        {
+            "name": "Source address",
+            "format": "%s"
+        },
+        {
+            "name": "Source port",
+            "format": "%S"
+        },
+        {
+            "name": "Src addr (resolved)",
+            "format": "%rs"
+        },
+        {
+            "name": "Src addr (unresolved)",
+            "format": "%us"
+        },
+        {
+            "name": "Src port (resolved)",
+            "format": "%rS"
+        },
+        {
+            "name": "Src port (unresolved)",
+            "format": "%uS"
+        },
+        {
+            "name": "UTC date, as YYYY-MM-DD, and time",
+            "format": "%Yut"
+        },
+        {
+            "name": "UTC date, as YYYY/DOY, and time",
+            "format": "%YDOYut"
+        },
+        {
+            "name": "UTC time",
+            "format": "%Aut"
+        },
+        {
+            "name": "Time (format as specified)",
+            "format": "%t"
+        }
+    ],
+    "stats": [
+        {
+            "name": "29West/Queues/Advertisements by Queue",
+            "tap": "stat:lbmr_queue_ads_queue"
+        },
+        {
+            "name": "29West/Queues/Advertisements by Source",
+            "tap": "stat:lbmr_queue_ads_source"
+        },
+        {
+            "name": "29West/Queues/Queries by Queue",
+            "tap": "stat:lbmr_queue_queries_queue"
+        },
+        {
+            "name": "29West/Queues/Queries by Receiver",
+            "tap": "stat:lbmr_queue_queries_receiver"
+        },
+        {
+            "name": "29West/Topics/Advertisements by Source",
+            "tap": "stat:lbmr_topic_ads_source"
+        },
+        {
+            "name": "29West/Topics/Advertisements by Topic",
+            "tap": "stat:lbmr_topic_ads_topic"
+        },
+        {
+            "name": "29West/Topics/Advertisements by Transport",
+            "tap": "stat:lbmr_topic_ads_transport"
+        },
+        {
+            "name": "29West/Topics/Queries by Receiver",
+            "tap": "stat:lbmr_topic_queries_receiver"
+        },
+        {
+            "name": "29West/Topics/Queries by Topic",
+            "tap": "stat:lbmr_topic_queries_topic"
+        },
+        {
+            "name": "29West/Topics/Wildcard Queries by Pattern",
+            "tap": "stat:lbmr_topic_queries_pattern"
+        },
+        {
+            "name": "29West/Topics/Wildcard Queries by Receiver",
+            "tap": "stat:lbmr_topic_queries_pattern_receiver"
+        },
+        {
+            "name": "ANCP",
+            "tap": "stat:ancp"
+        },
+        {
+            "name": "BACnet / Packets sorted by IP",
+            "tap": "stat:bacapp_ip"
+        },
+        {
+            "name": "BACnet / Packets sorted by Instance ID",
+            "tap": "stat:bacapp_instanceid"
+        },
+        {
+            "name": "BACnet / Packets sorted by Object Type",
+            "tap": "stat:bacapp_objectid"
+        },
+        {
+            "name": "BACnet / Packets sorted by Service",
+            "tap": "stat:bacapp_service"
+        },
+        {
+            "name": "Collectd",
+            "tap": "stat:collectd"
+        },
+        {
+            "name": "DNS",
+            "tap": "stat:dns"
+        },
+        {
+            "name": "DNS/Query-Response",
+            "tap": "stat:dns_qr"
+        },
+        {
+            "name": "E2AP",
+            "tap": "stat:e2ap"
+        },
+        {
+            "name": "F1AP",
+            "tap": "stat:f1ap"
+        },
+        {
+            "name": "F5 / Virtual Server Distribution",
+            "tap": "stat:f5_virt_dist"
+        },
+        {
+            "name": "F5 / tmm Distribution",
+            "tap": "stat:f5_tmm_dist"
+        },
+        {
+            "name": "HART-IP",
+            "tap": "stat:hart_ip"
+        },
+        {
+            "name": "HPFEEDS",
+            "tap": "stat:hpfeeds"
+        },
+        {
+            "name": "HTTP / Load Distribution",
+            "tap": "stat:http_srv"
+        },
+        {
+            "name": "HTTP / Packet Counter",
+            "tap": "stat:http"
+        },
+        {
+            "name": "HTTP / Request Sequences",
+            "tap": "stat:http_seq"
+        },
+        {
+            "name": "HTTP / Requests",
+            "tap": "stat:http_req"
+        },
+        {
+            "name": "HTTP2",
+            "tap": "stat:http2"
+        },
+        {
+            "name": "LTP",
+            "tap": "stat:ltp"
+        },
+        {
+            "name": "NGAP",
+            "tap": "stat:ngap"
+        },
+        {
+            "name": "Osmux / osmux",
+            "tap": "stat:osmux"
+        },
+        {
+            "name": "RTSP / Packet Counter",
+            "tap": "stat:rtsp"
+        },
+        {
+            "name": "SM_PP Operations",
+            "tap": "stat:smpp_commands"
+        },
+        {
+            "name": "SOME/IP Messages",
+            "tap": "stat:someip_messages"
+        },
+        {
+            "name": "SOME/IP-SD Entries",
+            "tap": "stat:someipsd_entries"
+        },
+        {
+            "name": "Sametime / Messages",
+            "tap": "stat:sametime"
+        },
+        {
+            "name": "_ISUP Messages",
+            "tap": "stat:isup_msg"
+        },
+        {
+            "name": "_UCP Messages",
+            "tap": "stat:ucp_messages"
+        }
+    ],
+    "ftypes": [
+        "FT_NONE",
+        "FT_PROTOCOL",
+        "FT_BOOLEAN",
+        "FT_CHAR",
+        "FT_UINT8",
+        "FT_UINT16",
+        "FT_UINT24",
+        "FT_UINT32",
+        "FT_UINT40",
+        "FT_UINT48",
+        "FT_UINT56",
+        "FT_UINT64",
+        "FT_INT8",
+        "FT_INT16",
+        "FT_INT24",
+        "FT_INT32",
+        "FT_INT40",
+        "FT_INT48",
+        "FT_INT56",
+        "FT_INT64",
+        "FT_IEEE_11073_SFLOAT",
+        "FT_IEEE_11073_FLOAT",
+        "FT_FLOAT",
+        "FT_DOUBLE",
+        "FT_ABSOLUTE_TIME",
+        "FT_RELATIVE_TIME",
+        "FT_STRING",
+        "FT_STRINGZ",
+        "FT_UINT_STRING",
+        "FT_ETHER",
+        "FT_BYTES",
+        "FT_UINT_BYTES",
+        "FT_IPv4",
+        "FT_IPv6",
+        "FT_IPXNET",
+        "FT_FRAMENUM",
+        "FT_GUID",
+        "FT_OID",
+        "FT_EUI64",
+        "FT_AX25",
+        "FT_VINES",
+        "FT_REL_OID",
+        "FT_SYSTEM_ID",
+        "FT_STRINGZPAD",
+        "FT_FCWWN",
+        "FT_STRINGZTRUNC"
+    ],
+    "capture_types": [
+        {
+            "name": "pcap",
+            "description": "Wireshark/tcpdump/... - pcap"
+        },
+        {
+            "name": "pcapng",
+            "description": "Wireshark/... - pcapng"
+        },
+        {
+            "name": "5views",
+            "description": "InfoVista 5View capture"
+        },
+        {
+            "name": "btsnoop",
+            "description": "Symbian OS btsnoop"
+        },
+        {
+            "name": "commview-ncf",
+            "description": "TamoSoft CommView NCF"
+        },
+        {
+            "name": "commview-ncfx",
+            "description": "TamoSoft CommView NCFX"
+        },
+        {
+            "name": "dct2000",
+            "description": "Catapult DCT2000 trace (.out format)"
+        },
+        {
+            "name": "erf",
+            "description": "Endace ERF capture"
+        },
+        {
+            "name": "eyesdn",
+            "description": "EyeSDN USB S0/E1 ISDN trace format"
+        },
+        {
+            "name": "k12text",
+            "description": "K12 text file"
+        },
+        {
+            "name": "lanalyzer",
+            "description": "Novell LANalyzer"
+        },
+        {
+            "name": "logcat",
+            "description": "Android Logcat Binary format"
+        },
+        {
+            "name": "logcat-brief",
+            "description": "Android Logcat Brief text format"
+        },
+        {
+            "name": "logcat-long",
+            "description": "Android Logcat Long text format"
+        },
+        {
+            "name": "logcat-process",
+            "description": "Android Logcat Process text format"
+        },
+        {
+            "name": "logcat-tag",
+            "description": "Android Logcat Tag text format"
+        },
+        {
+            "name": "logcat-thread",
+            "description": "Android Logcat Thread text format"
+        },
+        {
+            "name": "logcat-threadtime",
+            "description": "Android Logcat Threadtime text format"
+        },
+        {
+            "name": "logcat-time",
+            "description": "Android Logcat Time text format"
+        },
+        {
+            "name": "modpcap",
+            "description": "Modified tcpdump - pcap"
+        },
+        {
+            "name": "mp2t",
+            "description": "MPEG2 transport stream"
+        },
+        {
+            "name": "netmon1",
+            "description": "Microsoft NetMon 1.x"
+        },
+        {
+            "name": "netmon2",
+            "description": "Microsoft NetMon 2.x"
+        },
+        {
+            "name": "nettl",
+            "description": "HP-UX nettl trace"
+        },
+        {
+            "name": "ngsniffer",
+            "description": "Sniffer (DOS)"
+        },
+        {
+            "name": "ngwsniffer_1_1",
+            "description": "NetXray, Sniffer (Windows) 1.1"
+        },
+        {
+            "name": "ngwsniffer_2_0",
+            "description": "Sniffer (Windows) 2.00x"
+        },
+        {
+            "name": "nokiapcap",
+            "description": "Nokia tcpdump - pcap"
+        },
+        {
+            "name": "nsecpcap",
+            "description": "Wireshark/tcpdump/... - nanosecond pcap"
+        },
+        {
+            "name": "nstrace10",
+            "description": "NetScaler Trace (Version 1.0)"
+        },
+        {
+            "name": "nstrace20",
+            "description": "NetScaler Trace (Version 2.0)"
+        },
+        {
+            "name": "nstrace30",
+            "description": "NetScaler Trace (Version 3.0)"
+        },
+        {
+            "name": "nstrace35",
+            "description": "NetScaler Trace (Version 3.5)"
+        },
+        {
+            "name": "observer",
+            "description": "Viavi Observer"
+        },
+        {
+            "name": "rf5",
+            "description": "Tektronix K12xx 32-bit .rf5 format"
+        },
+        {
+            "name": "rh6_1pcap",
+            "description": "RedHat 6.1 tcpdump - pcap"
+        },
+        {
+            "name": "snoop",
+            "description": "Sun snoop"
+        },
+        {
+            "name": "suse6_3pcap",
+            "description": "SuSE 6.3 tcpdump - pcap"
+        },
+        {
+            "name": "visual",
+            "description": "Visual Networks traffic capture"
+        }
+    ],
+    "encap_types": [
+        {
+            "name": "alp",
+            "description": "ATSC Link-Layer Protocol (A/330) packets"
+        },
+        {
+            "name": "ap1394",
+            "description": "Apple IP-over-IEEE 1394"
+        },
+        {
+            "name": "arcnet",
+            "description": "ARCNET"
+        },
+        {
+            "name": "arcnet_linux",
+            "description": "Linux ARCNET"
+        },
+        {
+            "name": "ascend",
+            "description": "Lucent/Ascend access equipment"
+        },
+        {
+            "name": "atm-pdus",
+            "description": "ATM PDUs"
+        },
+        {
+            "name": "atm-pdus-untruncated",
+            "description": "ATM PDUs - untruncated"
+        },
+        {
+            "name": "atm-rfc1483",
+            "description": "RFC 1483 ATM"
+        },
+        {
+            "name": "auerlog",
+            "description": "Auerswald Log"
+        },
+        {
+            "name": "autosardlt",
+            "description": "AUTOSAR DLT"
+        },
+        {
+            "name": "ax25",
+            "description": "Amateur Radio AX.25"
+        },
+        {
+            "name": "ax25-kiss",
+            "description": "AX.25 with KISS header"
+        },
+        {
+            "name": "bacnet-ms-tp",
+            "description": "BACnet MS/TP"
+        },
+        {
+            "name": "bacnet-ms-tp-with-direction",
+            "description": "BACnet MS/TP with Directional Info"
+        },
+        {
+            "name": "ber",
+            "description": "ASN.1 Basic Encoding Rules"
+        },
+        {
+            "name": "bluetooth-bredr-bb-rf",
+            "description": "Bluetooth BR/EDR Baseband RF"
+        },
+        {
+            "name": "bluetooth-h4",
+            "description": "Bluetooth H4"
+        },
+        {
+            "name": "bluetooth-h4-linux",
+            "description": "Bluetooth H4 with linux header"
+        },
+        {
+            "name": "bluetooth-hci",
+            "description": "Bluetooth without transport layer"
+        },
+        {
+            "name": "bluetooth-le-ll",
+            "description": "Bluetooth Low Energy Link Layer"
+        },
+        {
+            "name": "bluetooth-le-ll-rf",
+            "description": "Bluetooth Low Energy Link Layer RF"
+        },
+        {
+            "name": "bluetooth-linux-monitor",
+            "description": "Bluetooth Linux Monitor"
+        },
+        {
+            "name": "can20b",
+            "description": "Controller Area Network 2.0B"
+        },
+        {
+            "name": "chdlc",
+            "description": "Cisco HDLC"
+        },
+        {
+            "name": "chdlc-with-direction",
+            "description": "Cisco HDLC with Directional Info"
+        },
+        {
+            "name": "cosine",
+            "description": "CoSine L2 debug log"
+        },
+        {
+            "name": "dbus",
+            "description": "D-Bus"
+        },
+        {
+            "name": "dct2000",
+            "description": "Catapult DCT2000"
+        },
+        {
+            "name": "dect_nr",
+            "description": "DECT-2020 New Radio (NR) MAC layer"
+        },
+        {
+            "name": "docsis",
+            "description": "Data Over Cable Service Interface Specification"
+        },
+        {
+            "name": "docsis31_xra31",
+            "description": "DOCSIS with Excentis XRA pseudo-header"
+        },
+        {
+            "name": "dpauxmon",
+            "description": "DisplayPort AUX channel with Unigraf pseudo-header"
+        },
+        {
+            "name": "dpnss_link",
+            "description": "Digital Private Signalling System No 1 Link Layer"
+        },
+        {
+            "name": "dvbci",
+            "description": "DVB-CI (Common Interface)"
+        },
+        {
+            "name": "ebhscr",
+            "description": "Elektrobit High Speed Capture and Replay"
+        },
+        {
+            "name": "ems",
+            "description": "EMS (EGNOS Message Server) file"
+        },
+        {
+            "name": "enc",
+            "description": "OpenBSD enc(4) encapsulating interface"
+        },
+        {
+            "name": "epon",
+            "description": "Ethernet Passive Optical Network"
+        },
+        {
+            "name": "erf",
+            "description": "Extensible Record Format"
+        },
+        {
+            "name": "eri_enb_log",
+            "description": "Ericsson eNode-B raw log"
+        },
+        {
+            "name": "ether",
+            "description": "Ethernet"
+        },
+        {
+            "name": "ether-mpacket",
+            "description": "IEEE 802.3br mPackets"
+        },
+        {
+            "name": "ether-nettl",
+            "description": "Ethernet with nettl headers"
+        },
+        {
+            "name": "etw",
+            "description": "Event Tracing for Windows messages"
+        },
+        {
+            "name": "fc2",
+            "description": "Fibre Channel FC-2"
+        },
+        {
+            "name": "fc2sof",
+            "description": "Fibre Channel FC-2 With Frame Delimiter"
+        },
+        {
+            "name": "fddi",
+            "description": "FDDI"
+        },
+        {
+            "name": "fddi-nettl",
+            "description": "FDDI with nettl headers"
+        },
+        {
+            "name": "fddi-swapped",
+            "description": "FDDI with bit-swapped MAC addresses"
+        },
+        {
+            "name": "fira-uci",
+            "description": "FiRa UWB Controller Interface (UCI) protocol."
+        },
+        {
+            "name": "flexray",
+            "description": "FlexRay"
+        },
+        {
+            "name": "frelay",
+            "description": "Frame Relay"
+        },
+        {
+            "name": "frelay-with-direction",
+            "description": "Frame Relay with Directional Info"
+        },
+        {
+            "name": "gcom-serial",
+            "description": "GCOM Serial"
+        },
+        {
+            "name": "gcom-tie1",
+            "description": "GCOM TIE1"
+        },
+        {
+            "name": "gfp-f",
+            "description": "ITU-T G.7041/Y.1303 Generic Framing Procedure Frame-mapped mode"
+        },
+        {
+            "name": "gfp-t",
+            "description": "ITU-T G.7041/Y.1303 Generic Framing Procedure Transparent mode"
+        },
+        {
+            "name": "gprs-llc",
+            "description": "GPRS LLC"
+        },
+        {
+            "name": "gsm_um",
+            "description": "GSM Um Interface"
+        },
+        {
+            "name": "hhdlc",
+            "description": "HiPath HDLC"
+        },
+        {
+            "name": "i2c-linux",
+            "description": "I2C with Linux-specific pseudo-header"
+        },
+        {
+            "name": "ieee-802-11",
+            "description": "IEEE 802.11 Wireless LAN"
+        },
+        {
+            "name": "ieee-802-11-avs",
+            "description": "IEEE 802.11 plus AVS radio header"
+        },
+        {
+            "name": "ieee-802-11-netmon",
+            "description": "IEEE 802.11 plus Network Monitor radio header"
+        },
+        {
+            "name": "ieee-802-11-prism",
+            "description": "IEEE 802.11 plus Prism II monitor mode radio header"
+        },
+        {
+            "name": "ieee-802-11-radio",
+            "description": "IEEE 802.11 Wireless LAN with radio information"
+        },
+        {
+            "name": "ieee-802-11-radiotap",
+            "description": "IEEE 802.11 plus radiotap radio header"
+        },
+        {
+            "name": "ieee-802-16-mac-cps",
+            "description": "IEEE 802.16 MAC Common Part Sublayer"
+        },
+        {
+            "name": "infiniband",
+            "description": "InfiniBand"
+        },
+        {
+            "name": "ios",
+            "description": "Cisco IOS internal"
+        },
+        {
+            "name": "ip-ib",
+            "description": "IP over IB"
+        },
+        {
+            "name": "ip-over-fc",
+            "description": "RFC 2625 IP-over-Fibre Channel"
+        },
+        {
+            "name": "ip-over-ib",
+            "description": "IP over InfiniBand"
+        },
+        {
+            "name": "ipfix",
+            "description": "RFC 5655/RFC 5101 IPFIX"
+        },
+        {
+            "name": "ipmb-kontron",
+            "description": "Intelligent Platform Management Bus with Kontron pseudo-header"
+        },
+        {
+            "name": "ipmi-trace",
+            "description": "IPMI Trace Data Collection"
+        },
+        {
+            "name": "ipnet",
+            "description": "Solaris IPNET"
+        },
+        {
+            "name": "irda",
+            "description": "IrDA"
+        },
+        {
+            "name": "isdn",
+            "description": "ISDN"
+        },
+        {
+            "name": "iso14443",
+            "description": "ISO 14443 contactless smartcard standards"
+        },
+        {
+            "name": "ixveriwave",
+            "description": "IxVeriWave header and stats block"
+        },
+        {
+            "name": "jfif",
+            "description": "JPEG/JFIF"
+        },
+        {
+            "name": "json",
+            "description": "JavaScript Object Notation"
+        },
+        {
+            "name": "juniper-atm1",
+            "description": "Juniper ATM1"
+        },
+        {
+            "name": "juniper-atm2",
+            "description": "Juniper ATM2"
+        },
+        {
+            "name": "juniper-chdlc",
+            "description": "Juniper C-HDLC"
+        },
+        {
+            "name": "juniper-ether",
+            "description": "Juniper Ethernet"
+        },
+        {
+            "name": "juniper-frelay",
+            "description": "Juniper Frame-Relay"
+        },
+        {
+            "name": "juniper-ggsn",
+            "description": "Juniper GGSN"
+        },
+        {
+            "name": "juniper-mlfr",
+            "description": "Juniper MLFR"
+        },
+        {
+            "name": "juniper-mlppp",
+            "description": "Juniper MLPPP"
+        },
+        {
+            "name": "juniper-ppp",
+            "description": "Juniper PPP"
+        },
+        {
+            "name": "juniper-pppoe",
+            "description": "Juniper PPPoE"
+        },
+        {
+            "name": "juniper-st",
+            "description": "Juniper Secure Tunnel Information"
+        },
+        {
+            "name": "juniper-svcs",
+            "description": "Juniper Services"
+        },
+        {
+            "name": "juniper-vn",
+            "description": "Juniper VN"
+        },
+        {
+            "name": "juniper-vp",
+            "description": "Juniper Voice PIC"
+        },
+        {
+            "name": "k12",
+            "description": "K12 protocol analyzer"
+        },
+        {
+            "name": "lapb",
+            "description": "LAPB"
+        },
+        {
+            "name": "lapd",
+            "description": "LAPD"
+        },
+        {
+            "name": "layer1-event",
+            "description": "EyeSDN Layer 1 event"
+        },
+        {
+            "name": "lin",
+            "description": "Local Interconnect Network"
+        },
+        {
+            "name": "linux-atm-clip",
+            "description": "Linux ATM CLIP"
+        },
+        {
+            "name": "linux-lapd",
+            "description": "LAPD with Linux pseudo-header"
+        },
+        {
+            "name": "linux-sll",
+            "description": "Linux cooked-mode capture v1"
+        },
+        {
+            "name": "linux-sll2",
+            "description": "Linux cooked-mode capture v2"
+        },
+        {
+            "name": "log_3GPP",
+            "description": "3GPP Phone Log"
+        },
+        {
+            "name": "logcat",
+            "description": "Android Logcat Binary format"
+        },
+        {
+            "name": "logcat_brief",
+            "description": "Android Logcat Brief text format"
+        },
+        {
+            "name": "logcat_long",
+            "description": "Android Logcat Long text format"
+        },
+        {
+            "name": "logcat_process",
+            "description": "Android Logcat Process text format"
+        },
+        {
+            "name": "logcat_tag",
+            "description": "Android Logcat Tag text format"
+        },
+        {
+            "name": "logcat_thread",
+            "description": "Android Logcat Thread text format"
+        },
+        {
+            "name": "logcat_threadtime",
+            "description": "Android Logcat Threadtime text format"
+        },
+        {
+            "name": "logcat_time",
+            "description": "Android Logcat Time text format"
+        },
+        {
+            "name": "loop",
+            "description": "OpenBSD loopback"
+        },
+        {
+            "name": "loratap",
+            "description": "LoRaTap"
+        },
+        {
+            "name": "ltalk",
+            "description": "Localtalk"
+        },
+        {
+            "name": "mdb",
+            "description": "MDB (Multi-Drop Bus)"
+        },
+        {
+            "name": "message_analyzer_wfp_capture2_v4",
+            "description": "Message Analyzer WFP Capture2 v4"
+        },
+        {
+            "name": "message_analyzer_wfp_capture2_v6",
+            "description": "Message Analyzer WFP Capture2 v6"
+        },
+        {
+            "name": "message_analyzer_wfp_capture_auth_v4",
+            "description": "Message Analyzer WFP Capture Auth v4"
+        },
+        {
+            "name": "message_analyzer_wfp_capture_auth_v6",
+            "description": "Message Analyzer WFP Capture Auth v6"
+        },
+        {
+            "name": "message_analyzer_wfp_capture_v4",
+            "description": "Message Analyzer WFP Capture v4"
+        },
+        {
+            "name": "message_analyzer_wfp_capture_v6",
+            "description": "Message Analyzer WFP Capture v6"
+        },
+        {
+            "name": "mime",
+            "description": "MIME"
+        },
+        {
+            "name": "most",
+            "description": "Media Oriented Systems Transport"
+        },
+        {
+            "name": "mp2ts",
+            "description": "ISO/IEC 13818-1 MPEG2-TS"
+        },
+        {
+            "name": "mp4",
+            "description": "MP4 files"
+        },
+        {
+            "name": "mpeg",
+            "description": "MPEG"
+        },
+        {
+            "name": "mtp2",
+            "description": "SS7 MTP2"
+        },
+        {
+            "name": "mtp2-with-phdr",
+            "description": "MTP2 with pseudoheader"
+        },
+        {
+            "name": "mtp3",
+            "description": "SS7 MTP3"
+        },
+        {
+            "name": "mux27010",
+            "description": "MUX27010"
+        },
+        {
+            "name": "netanalyzer",
+            "description": "Hilscher netANALYZER"
+        },
+        {
+            "name": "netanalyzer-transparent",
+            "description": "Hilscher netANALYZER-Transparent"
+        },
+        {
+            "name": "netlink",
+            "description": "Linux Netlink"
+        },
+        {
+            "name": "netmon_event",
+            "description": "Network Monitor Network Event"
+        },
+        {
+            "name": "netmon_filter",
+            "description": "Network Monitor Filter"
+        },
+        {
+            "name": "netmon_header",
+            "description": "Network Monitor Header"
+        },
+        {
+            "name": "netmon_network_info",
+            "description": "Network Monitor Network Info"
+        },
+        {
+            "name": "nfc-llcp",
+            "description": "NFC LLCP"
+        },
+        {
+            "name": "nflog",
+            "description": "NFLOG"
+        },
+        {
+            "name": "nordic_ble",
+            "description": "nRF Sniffer for Bluetooth LE"
+        },
+        {
+            "name": "nstrace10",
+            "description": "NetScaler Encapsulation 1.0 of Ethernet"
+        },
+        {
+            "name": "nstrace20",
+            "description": "NetScaler Encapsulation 2.0 of Ethernet"
+        },
+        {
+            "name": "nstrace30",
+            "description": "NetScaler Encapsulation 3.0 of Ethernet"
+        },
+        {
+            "name": "nstrace35",
+            "description": "NetScaler Encapsulation 3.5 of Ethernet"
+        },
+        {
+            "name": "null",
+            "description": "NULL/Loopback"
+        },
+        {
+            "name": "packetlogger",
+            "description": "Apple Bluetooth PacketLogger"
+        },
+        {
+            "name": "pflog",
+            "description": "OpenBSD PF Firewall logs"
+        },
+        {
+            "name": "pflog-old",
+            "description": "OpenBSD PF Firewall logs, pre-3.4"
+        },
+        {
+            "name": "pktap",
+            "description": "Apple PKTAP"
+        },
+        {
+            "name": "ppi",
+            "description": "Per-Packet Information header"
+        },
+        {
+            "name": "ppp",
+            "description": "PPP"
+        },
+        {
+            "name": "ppp-with-direction",
+            "description": "PPP with Directional Info"
+        },
+        {
+            "name": "pppoes",
+            "description": "PPP-over-Ethernet session"
+        },
+        {
+            "name": "raw-icmp-nettl",
+            "description": "Raw ICMP with nettl headers"
+        },
+        {
+            "name": "raw-icmpv6-nettl",
+            "description": "Raw ICMPv6 with nettl headers"
+        },
+        {
+            "name": "raw-telnet-nettl",
+            "description": "Raw telnet with nettl headers"
+        },
+        {
+            "name": "rawip",
+            "description": "Raw IP"
+        },
+        {
+            "name": "rawip-nettl",
+            "description": "Raw IP with nettl headers"
+        },
+        {
+            "name": "rawip4",
+            "description": "Raw IPv4"
+        },
+        {
+            "name": "rawip6",
+            "description": "Raw IPv6"
+        },
+        {
+            "name": "redback",
+            "description": "Redback SmartEdge"
+        },
+        {
+            "name": "rfc7468",
+            "description": "RFC 7468 file"
+        },
+        {
+            "name": "rtac-serial",
+            "description": "RTAC serial-line"
+        },
+        {
+            "name": "ruby_marshal",
+            "description": "Ruby marshal object"
+        },
+        {
+            "name": "s4607",
+            "description": "STANAG 4607"
+        },
+        {
+            "name": "s5066-dpdu",
+            "description": "STANAG 5066 Data Transfer Sublayer PDUs(D_PDU)"
+        },
+        {
+            "name": "sccp",
+            "description": "SS7 SCCP"
+        },
+        {
+            "name": "sctp",
+            "description": "SCTP"
+        },
+        {
+            "name": "sdh",
+            "description": "SDH"
+        },
+        {
+            "name": "sdjournal",
+            "description": "systemd journal"
+        },
+        {
+            "name": "sdlc",
+            "description": "SDLC"
+        },
+        {
+            "name": "silabs-dch",
+            "description": "Silabs Debug Channel"
+        },
+        {
+            "name": "sita-wan",
+            "description": "SITA WAN packets"
+        },
+        {
+            "name": "slip",
+            "description": "SLIP"
+        },
+        {
+            "name": "socketcan",
+            "description": "SocketCAN"
+        },
+        {
+            "name": "symantec",
+            "description": "Symantec Enterprise Firewall"
+        },
+        {
+            "name": "tnef",
+            "description": "Transport-Neutral Encapsulation Format"
+        },
+        {
+            "name": "tr",
+            "description": "Token Ring"
+        },
+        {
+            "name": "tr-nettl",
+            "description": "Token Ring with nettl headers"
+        },
+        {
+            "name": "tzsp",
+            "description": "Tazmen sniffer protocol"
+        },
+        {
+            "name": "unknown",
+            "description": "Unknown"
+        },
+        {
+            "name": "unknown-nettl",
+            "description": "Unknown link-layer type with nettl headers"
+        },
+        {
+            "name": "usb-20",
+            "description": "USB 2.0/1.1/1.0 packets"
+        },
+        {
+            "name": "usb-20-full",
+            "description": "Full-Speed USB 2.0/1.1/1.0 packets"
+        },
+        {
+            "name": "usb-20-high",
+            "description": "High-Speed USB 2.0 packets"
+        },
+        {
+            "name": "usb-20-low",
+            "description": "Low-Speed USB 2.0/1.1/1.0 packets"
+        },
+        {
+            "name": "usb-darwin",
+            "description": "USB packets with Darwin (macOS, etc.) headers"
+        },
+        {
+            "name": "usb-freebsd",
+            "description": "USB packets with FreeBSD header"
+        },
+        {
+            "name": "usb-linux",
+            "description": "USB packets with Linux header"
+        },
+        {
+            "name": "usb-linux-mmap",
+            "description": "USB packets with Linux header and padding"
+        },
+        {
+            "name": "usb-usbpcap",
+            "description": "USB packets with USBPcap header"
+        },
+        {
+            "name": "user0",
+            "description": "USER 0"
+        },
+        {
+            "name": "user1",
+            "description": "USER 1"
+        },
+        {
+            "name": "user2",
+            "description": "USER 2"
+        },
+        {
+            "name": "user3",
+            "description": "USER 3"
+        },
+        {
+            "name": "user4",
+            "description": "USER 4"
+        },
+        {
+            "name": "user5",
+            "description": "USER 5"
+        },
+        {
+            "name": "user6",
+            "description": "USER 6"
+        },
+        {
+            "name": "user7",
+            "description": "USER 7"
+        },
+        {
+            "name": "user8",
+            "description": "USER 8"
+        },
+        {
+            "name": "user9",
+            "description": "USER 9"
+        },
+        {
+            "name": "user10",
+            "description": "USER 10"
+        },
+        {
+            "name": "user11",
+            "description": "USER 11"
+        },
+        {
+            "name": "user12",
+            "description": "USER 12"
+        },
+        {
+            "name": "user13",
+            "description": "USER 13"
+        },
+        {
+            "name": "user14",
+            "description": "USER 14"
+        },
+        {
+            "name": "user15",
+            "description": "USER 15"
+        },
+        {
+            "name": "v5-ef",
+            "description": "V5 Envelope Function"
+        },
+        {
+            "name": "vpp",
+            "description": "Vector Packet Processing graph dispatch trace"
+        },
+        {
+            "name": "vsock",
+            "description": "Linux vsock"
+        },
+        {
+            "name": "whdlc",
+            "description": "Wellfleet HDLC"
+        },
+        {
+            "name": "wireshark-upper-pdu",
+            "description": "Wireshark Upper PDU export"
+        },
+        {
+            "name": "wpan",
+            "description": "IEEE 802.15.4 Wireless PAN"
+        },
+        {
+            "name": "wpan-nofcs",
+            "description": "IEEE 802.15.4 Wireless PAN with FCS not present"
+        },
+        {
+            "name": "wpan-nonask-phy",
+            "description": "IEEE 802.15.4 Wireless PAN non-ASK PHY"
+        },
+        {
+            "name": "wpan-tap",
+            "description": "IEEE 802.15.4 Wireless with TAP pseudo-header"
+        },
+        {
+            "name": "x2e-serial",
+            "description": "X2E serial line capture"
+        },
+        {
+            "name": "x2e-xoraya",
+            "description": "X2E Xoraya"
+        },
+        {
+            "name": "x25-nettl",
+            "description": "X.25 with nettl headers"
+        },
+        {
+            "name": "xeth",
+            "description": "Xerox 3MB Ethernet"
+        },
+        {
+            "name": "zbncp",
+            "description": "ZBOSS NCP"
+        },
+        {
+            "name": "zwave-serial",
+            "description": "Z-Wave Serial API packets"
+        }
+    ],
+    "version": "65188457b99d",
+    "nstat": [
+        {
+            "name": "A-I/F BSMAP Statistics",
+            "tap": "nstat:ansi_a,bsmap"
+        },
+        {
+            "name": "A-I/F DTAP Statistics",
+            "tap": "nstat:ansi_a,dtap"
+        },
+        {
+            "name": "Map Operation Statistics",
+            "tap": "nstat:ansi_map"
+        },
+        {
+            "name": "ASAP Statistics",
+            "tap": "nstat:asap,stat"
+        },
+        {
+            "name": "CalcAppProtocol Statistics",
+            "tap": "nstat:calcappprotocol,stat"
+        },
+        {
+            "name": "CAMEL Messages and Response Status",
+            "tap": "nstat:camel,counter"
+        },
+        {
+            "name": "ComponentStatusProtocol Statistics",
+            "tap": "nstat:componentstatusprotocol,stat"
+        },
+        {
+            "name": "DHCP (BOOTP) Statistics",
+            "tap": "nstat:dhcp,stat"
+        },
+        {
+            "name": "ENRP Statistics",
+            "tap": "nstat:enrp,stat"
+        },
+        {
+            "name": "FractalGeneratorProtocol Statistics",
+            "tap": "nstat:fractalgeneratorprotocol,stat"
+        },
+        {
+            "name": "A-Interface BSSMAP",
+            "tap": "nstat:gsm_a,bssmap"
+        },
+        {
+            "name": "A-Interface DTAP Call Control",
+            "tap": "nstat:gsm_a,dtap_cc"
+        },
+        {
+            "name": "A-Interface DTAP GPRS Mobility Management",
+            "tap": "nstat:gsm_a,dtap_gmm"
+        },
+        {
+            "name": "A-Interface DTAP Mobility Management",
+            "tap": "nstat:gsm_a,dtap_mm"
+        },
+        {
+            "name": "A-Interface DTAP Radio Resource Management",
+            "tap": "nstat:gsm_a,dtap_rr"
+        },
+        {
+            "name": "A-Interface SACCH",
+            "tap": "nstat:gsm_a,dtap_sacch"
+        },
+        {
+            "name": "A-Interface DTAP GPRS Session Management",
+            "tap": "nstat:gsm_a,dtap_sm"
+        },
+        {
+            "name": "A-Interface DTAP Short Message Service",
+            "tap": "nstat:gsm_a,dtap_sms"
+        },
+        {
+            "name": "A-Interface DTAP Supplementary Services",
+            "tap": "nstat:gsm_a,dtap_ss"
+        },
+        {
+            "name": "A-Interface DTAP Special Conformance Testing Functions",
+            "tap": "nstat:gsm_a,dtap_tp"
+        },
+        {
+            "name": "MAP Operation",
+            "tap": "nstat:gsm_map,operation"
+        },
+        {
+            "name": "H.225",
+            "tap": "nstat:h225,counter"
+        },
+        {
+            "name": "MTP3 Statistics",
+            "tap": "nstat:mtp3,msus"
+        },
+        {
+            "name": "NetPerfMeter Statistics",
+            "tap": "nstat:npm,stat"
+        },
+        {
+            "name": "PingPongProtocol Statistics",
+            "tap": "nstat:pingpongprotocol,stat"
+        },
+        {
+            "name": "ONC-RPC Programs",
+            "tap": "nstat:rpc,programs"
+        },
+        {
+            "name": "SIP Statistics",
+            "tap": "nstat:sip,stat"
+        },
+        {
+            "name": "ScriptingServiceProtocol Statistics",
+            "tap": "nstat:ssprotocol,stat"
+        },
+        {
+            "name": "WAP-WSP Packet Counter",
+            "tap": "nstat:wsp,stat"
+        }
+    ],
+    "convs": [
+        {
+            "name": "Conversation List/BPv7",
+            "tap": "conv:BPv7"
+        },
+        {
+            "name": "Endpoint/BPv7",
+            "tap": "endpt:BPv7"
+        },
+        {
+            "name": "Conversation List/Bluetooth",
+            "tap": "conv:Bluetooth"
+        },
+        {
+            "name": "Endpoint/Bluetooth",
+            "tap": "endpt:Bluetooth"
+        },
+        {
+            "name": "Conversation List/DCCP",
+            "tap": "conv:DCCP"
+        },
+        {
+            "name": "Endpoint/DCCP",
+            "tap": "endpt:DCCP"
+        },
+        {
+            "name": "Conversation List/Ethernet",
+            "tap": "conv:Ethernet"
+        },
+        {
+            "name": "Endpoint/Ethernet",
+            "tap": "endpt:Ethernet"
+        },
+        {
+            "name": "Conversation List/FC",
+            "tap": "conv:FC"
+        },
+        {
+            "name": "Endpoint/FC",
+            "tap": "endpt:FC"
+        },
+        {
+            "name": "Conversation List/FDDI",
+            "tap": "conv:FDDI"
+        },
+        {
+            "name": "Endpoint/FDDI",
+            "tap": "endpt:FDDI"
+        },
+        {
+            "name": "Conversation List/IEEE 802.11",
+            "tap": "conv:IEEE 802.11"
+        },
+        {
+            "name": "Endpoint/IEEE 802.11",
+            "tap": "endpt:IEEE 802.11"
+        },
+        {
+            "name": "Conversation List/IEEE 802.15.4",
+            "tap": "conv:IEEE 802.15.4"
+        },
+        {
+            "name": "Endpoint/IEEE 802.15.4",
+            "tap": "endpt:IEEE 802.15.4"
+        },
+        {
+            "name": "Conversation List/IPX",
+            "tap": "conv:IPX"
+        },
+        {
+            "name": "Endpoint/IPX",
+            "tap": "endpt:IPX"
+        },
+        {
+            "name": "Conversation List/IPv4",
+            "tap": "conv:IPv4"
+        },
+        {
+            "name": "Endpoint/IPv4",
+            "tap": "endpt:IPv4"
+        },
+        {
+            "name": "Conversation List/IPv6",
+            "tap": "conv:IPv6"
+        },
+        {
+            "name": "Endpoint/IPv6",
+            "tap": "endpt:IPv6"
+        },
+        {
+            "name": "Conversation List/JXTA",
+            "tap": "conv:JXTA"
+        },
+        {
+            "name": "Endpoint/JXTA",
+            "tap": "endpt:JXTA"
+        },
+        {
+            "name": "Conversation List/LTP",
+            "tap": "conv:LTP"
+        },
+        {
+            "name": "Endpoint/LTP",
+            "tap": "endpt:LTP"
+        },
+        {
+            "name": "Conversation List/MPTCP",
+            "tap": "conv:MPTCP"
+        },
+        {
+            "name": "Endpoint/MPTCP",
+            "tap": "endpt:MPTCP"
+        },
+        {
+            "name": "Conversation List/NCP",
+            "tap": "conv:NCP"
+        },
+        {
+            "name": "Endpoint/NCP",
+            "tap": "endpt:NCP"
+        },
+        {
+            "name": "Conversation List/RSVP",
+            "tap": "conv:RSVP"
+        },
+        {
+            "name": "Endpoint/RSVP",
+            "tap": "endpt:RSVP"
+        },
+        {
+            "name": "Conversation List/SCTP",
+            "tap": "conv:SCTP"
+        },
+        {
+            "name": "Endpoint/SCTP",
+            "tap": "endpt:SCTP"
+        },
+        {
+            "name": "Conversation List/SLL",
+            "tap": "conv:SLL"
+        },
+        {
+            "name": "Endpoint/SLL",
+            "tap": "endpt:SLL"
+        },
+        {
+            "name": "Conversation List/TCP",
+            "tap": "conv:TCP"
+        },
+        {
+            "name": "Endpoint/TCP",
+            "tap": "endpt:TCP"
+        },
+        {
+            "name": "Conversation List/Token-Ring",
+            "tap": "conv:Token-Ring"
+        },
+        {
+            "name": "Endpoint/Token-Ring",
+            "tap": "endpt:Token-Ring"
+        },
+        {
+            "name": "Conversation List/UDP",
+            "tap": "conv:UDP"
+        },
+        {
+            "name": "Endpoint/UDP",
+            "tap": "endpt:UDP"
+        },
+        {
+            "name": "Conversation List/USB",
+            "tap": "conv:USB"
+        },
+        {
+            "name": "Endpoint/USB",
+            "tap": "endpt:USB"
+        },
+        {
+            "name": "Conversation List/ZigBee",
+            "tap": "conv:ZigBee"
+        },
+        {
+            "name": "Endpoint/ZigBee",
+            "tap": "endpt:ZigBee"
+        },
+        {
+            "name": "Conversation List/openSAFETY",
+            "tap": "conv:openSAFETY"
+        },
+        {
+            "name": "Endpoint/openSAFETY",
+            "tap": "endpt:openSAFETY"
+        }
+    ],
+    "seqa": [
+        {
+            "name": "All Flows",
+            "tap": "seqa:any"
+        },
+        {
+            "name": "ICMP Flows",
+            "tap": "seqa:icmp"
+        },
+        {
+            "name": "ICMPv6 Flows",
+            "tap": "seqa:icmpv6"
+        },
+        {
+            "name": "UIM Flows",
+            "tap": "seqa:lbm_uim"
+        },
+        {
+            "name": "TCP Flows",
+            "tap": "seqa:tcp"
+        }
+    ],
+    "taps": [
+        {
+            "name": "UDP Multicast Streams",
+            "tap": "multicast"
+        },
+        {
+            "name": "RTP streams",
+            "tap": "rtp-streams"
+        },
+        {
+            "name": "Protocol Hierarchy Statistics",
+            "tap": "phs"
+        },
+        {
+            "name": "VoIP Calls",
+            "tap": "voip-calls"
+        },
+        {
+            "name": "VoIP Conversations",
+            "tap": "voip-convs"
+        },
+        {
+            "name": "Expert Information",
+            "tap": "expert"
+        }
+    ],
+    "eo": [
+        {
+            "name": "Export Object/DICOM",
+            "tap": "eo:dicom"
+        },
+        {
+            "name": "Export Object/FTP-DATA",
+            "tap": "eo:ftp-data"
+        },
+        {
+            "name": "Export Object/HTTP",
+            "tap": "eo:http"
+        },
+        {
+            "name": "Export Object/IMF",
+            "tap": "eo:imf"
+        },
+        {
+            "name": "Export Object/SMB",
+            "tap": "eo:smb"
+        },
+        {
+            "name": "Export Object/TFTP",
+            "tap": "eo:tftp"
+        }
+    ],
+    "srt": [
+        {
+            "name": "Service Response Time/AFP",
+            "tap": "srt:afp"
+        },
+        {
+            "name": "Service Response Time/CAMEL",
+            "tap": "srt:camel"
+        },
+        {
+            "name": "Service Response Time/DCERPC",
+            "tap": "srt:dcerpc"
+        },
+        {
+            "name": "Service Response Time/Diameter",
+            "tap": "srt:diameter"
+        },
+        {
+            "name": "Service Response Time/FC",
+            "tap": "srt:fc"
+        },
+        {
+            "name": "Service Response Time/GTP",
+            "tap": "srt:gtp"
+        },
+        {
+            "name": "Service Response Time/GTPv2",
+            "tap": "srt:gtpv2"
+        },
+        {
+            "name": "Service Response Time/KRB5",
+            "tap": "srt:kerberos"
+        },
+        {
+            "name": "Service Response Time/LDAP",
+            "tap": "srt:ldap"
+        },
+        {
+            "name": "Service Response Time/NCP",
+            "tap": "srt:ncp"
+        },
+        {
+            "name": "Service Response Time/NFSv4",
+            "tap": "srt:nfsv4"
+        },
+        {
+            "name": "Service Response Time/PFCP",
+            "tap": "srt:pfcp"
+        },
+        {
+            "name": "Service Response Time/RPC",
+            "tap": "srt:rpc"
+        },
+        {
+            "name": "Service Response Time/SCSI",
+            "tap": "srt:scsi"
+        },
+        {
+            "name": "Service Response Time/SMB",
+            "tap": "srt:smb"
+        },
+        {
+            "name": "Service Response Time/SMB2",
+            "tap": "srt:smb2"
+        },
+        {
+            "name": "Service Response Time/SNMP",
+            "tap": "srt:snmp"
+        }
+    ],
+    "rtd": [
+        {
+            "name": "Response Time Delay/H.225 RAS",
+            "tap": "rtd:h225_ras"
+        },
+        {
+            "name": "Response Time Delay/MEGACO",
+            "tap": "rtd:megaco"
+        },
+        {
+            "name": "Response Time Delay/MGCP",
+            "tap": "rtd:mgcp"
+        },
+        {
+            "name": "Response Time Delay/RADIUS",
+            "tap": "rtd:radius"
+        }
+    ],
+    "follow": [
+        {
+            "name": "Follow/DCCP",
+            "tap": "follow:DCCP"
+        },
+        {
+            "name": "Follow/HTTP",
+            "tap": "follow:HTTP"
+        },
+        {
+            "name": "Follow/HTTP2",
+            "tap": "follow:HTTP2"
+        },
+        {
+            "name": "Follow/QUIC",
+            "tap": "follow:QUIC"
+        },
+        {
+            "name": "Follow/SIP",
+            "tap": "follow:SIP"
+        },
+        {
+            "name": "Follow/TCP",
+            "tap": "follow:TCP"
+        },
+        {
+            "name": "Follow/TLS",
+            "tap": "follow:TLS"
+        },
+        {
+            "name": "Follow/UDP",
+            "tap": "follow:UDP"
+        },
+        {
+            "name": "Follow/USBCOM",
+            "tap": "follow:USBCOM"
+        },
+        {
+            "name": "Follow/WebSocket",
+            "tap": "follow:WebSocket"
+        }
+    ]
+}
