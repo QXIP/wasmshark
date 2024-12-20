@@ -23,6 +23,7 @@ import { PcapUploaderModule } from '../pcap-uploader/pcap-uploader.module';
  */
 import { AngularSplitModule } from 'angular-split';
 import { MenuStatComponent } from '../menu-stat/menu-stat.component';
+import { WiresharkUiMenuModule } from '@app/components/wireshark-ui-menu/wireshark-ui-menu.module';
 @NgModule({
   imports: [
     PcapUploaderModule,
@@ -41,7 +42,8 @@ import { MenuStatComponent } from '../menu-stat/menu-stat.component';
     FrameHexModule,
     AngularSplitModule,
     FlexibleChartModule,
-    NoDataModule
+    NoDataModule,
+    WiresharkUiMenuModule
   ],
   declarations: [
     MenuStatComponent,
