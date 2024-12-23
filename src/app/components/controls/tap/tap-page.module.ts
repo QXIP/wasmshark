@@ -6,6 +6,7 @@ import { TapFlowModule } from './tap-flow/tap-flow.module';
 import { TapRtpStreamsModule } from './tap-rtp-streams/tap-rtp-streams.module';
 import { NoDataModule } from '../no-data/no-data.module';
 import { ChartAndTableModule } from '../chart-and-table/chart-and-table.module';
+import { IPv4StatisticsComponent } from './statistics/ipv4-statistics/ipv4-statistics.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,10 @@ import { ChartAndTableModule } from '../chart-and-table/chart-and-table.module';
     NoDataModule,
     ChartAndTableModule
   ],
-  declarations: [TapPageComponent],
+  declarations: [
+    TapPageComponent,
+    IPv4StatisticsComponent
+  ],
   exports: [TapPageComponent]
 })
 export class TapPageModule { }
