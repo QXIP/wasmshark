@@ -1,7 +1,23 @@
 <isData [inProgress]="loading" [noDataIf]="!jsonData && !(type == 'rtp-streams' || type === 'seqa:any')">
   <ng-container [ngSwitch]="type">
-    <ng-template ngSwitchCase="seqa:any">
+    <ng-template ngSwitchCase="flow">
       <tap-flow [data]="jsonData || []"></tap-flow>
+    </ng-template>
+
+    <ng-template ngSwitchCase="ipv4-statistics">
+      <app-ipv4-statistics [data]="jsonData || []"></app-ipv4-statistics>
+    </ng-template>
+
+    <ng-template ngSwitchCase="ipv6-statistics">
+      <app-ipv6-statistics [data]="jsonData || []"></app-ipv6-statistics>
+    </ng-template>
+
+    <ng-template ngSwitchCase="DHCP-statistics">
+      <app-DHCP-statistics></app-DHCP-statistics>
+    </ng-template>
+
+    <ng-template ngSwitchCase="NetPerfMeter-Statistics">
+      <app-NetPerfMeter-Statistics></app-NetPerfMeter-Statistics>
     </ng-template>
 
     <ng-template ngSwitchCase="rtp-streams">

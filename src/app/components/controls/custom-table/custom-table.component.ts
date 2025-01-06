@@ -36,6 +36,7 @@ export class CustomTableComponent {
   @Input() isPaginator = true;
   @Input()
   set details(val: any) {
+    console.log({val})
     this.dataSource = new TableVirtualScrollDataSource(val);
     if (this.isPaginator) {
       this.dataSource.paginator = this.paginator;
