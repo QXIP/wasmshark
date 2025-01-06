@@ -1,0 +1,242 @@
+<mat-toolbar>
+  <button mat-button [matMenuTriggerFor]="fileMenu">File</button>
+  <button mat-button [matMenuTriggerFor]="editMenu">Edit</button>
+  <button mat-button [matMenuTriggerFor]="viewMenu">View</button>
+  <button mat-button [matMenuTriggerFor]="captureMenu">Capture</button>
+  <button mat-button [matMenuTriggerFor]="analyzeMenu">Analyze</button>
+  <button mat-button [matMenuTriggerFor]="statisticsMenu">Statistics</button>
+  <button mat-button [matMenuTriggerFor]="telephonyMenu">Telephony</button>
+  <button mat-button [matMenuTriggerFor]="toolsMenu">Tools</button>
+  <button mat-button [matMenuTriggerFor]="helpMenu">Help</button>
+</mat-toolbar>
+<mat-menu #captureMenu="matMenu">
+  <button mat-menu-item [disabled]="true" (click)="onMenuClick('File>Options')">Options</button>
+  <button mat-menu-item [disabled]="true" (click)="onMenuClick('File>Start')">Start</button>
+  <button mat-menu-item [disabled]="true" (click)="onMenuClick('File>Restart')">Restart</button>
+  <button mat-menu-item [disabled]="true" (click)="onMenuClick('File>Stop')">Stop</button>
+  <button mat-menu-item [matMenuTriggerFor]="captureFiltersMenu">Capture Filters</button>
+  <mat-menu #captureFiltersMenu="matMenu">
+    <button mat-menu-item disabled (click)="onMenuClick('File>Capture Filters>Manage Filters')">Manage Filters</button>
+    <button mat-menu-item disabled (click)="onMenuClick('File>Capture Filters>Clear Filters')">Clear Filters</button>
+  </mat-menu>
+  <button mat-menu-item disabled (click)="onMenuClick('File>Refresh Interfaces')">Refresh Interfaces</button>
+</mat-menu>
+
+<mat-menu #analyzeMenu="matMenu">
+  <button mat-menu-item [matMenuTriggerFor]="displayFiltersMenu">Display
+    Filters</button>
+  <mat-menu #displayFiltersMenu="matMenu">
+    <button mat-menu-item disabled (click)="onMenuClick($event)">Manage Display Filters</button>
+    <button mat-menu-item disabled (click)="onMenuClick($event)">Apply Filter</button>
+    <button mat-menu-item disabled (click)="onMenuClick($event)">Reset Filter</button>
+  </mat-menu>
+
+  <button mat-menu-item [matMenuTriggerFor]="applyAsFilterMenu">Apply as
+    Filter</button>
+  <mat-menu #applyAsFilterMenu="matMenu">
+    <button mat-menu-item disabled (click)="onMenuClick($event)">Selected</button>
+    <button mat-menu-item disabled (click)="onMenuClick($event)">Not Selected</button>
+    <button mat-menu-item disabled (click)="onMenuClick($event)">And Selected</button>
+    <button mat-menu-item disabled (click)="onMenuClick($event)">Or Selected</button>
+  </mat-menu>
+
+  <button mat-menu-item [matMenuTriggerFor]="prepareAFilterMenu">Prepare a
+    Filter</button>
+  <mat-menu #prepareAFilterMenu="matMenu">
+    <button mat-menu-item disabled (click)="onMenuClick($event)">Selected</button>
+    <button mat-menu-item disabled (click)="onMenuClick($event)">Not Selected</button>
+  </mat-menu>
+
+  <button mat-menu-item disabled (click)="onMenuClick($event)">Enabled Protocols</button>
+  <button mat-menu-item disabled (click)="onMenuClick($event)">Decode As</button>
+  <button mat-menu-item [matMenuTriggerFor]="followMenu">Follow</button>
+  <mat-menu #followMenu="matMenu">
+    <button mat-menu-item disabled (click)="onMenuClick($event)">TCP Stream</button>
+    <button mat-menu-item disabled (click)="onMenuClick($event)">UDP Stream</button>
+    <button mat-menu-item disabled (click)="onMenuClick($event)">HTTP Stream</button>
+  </mat-menu>
+
+  <button mat-menu-item [matMenuTriggerFor]="statisticsSubMenu">Statistics</button>
+  <mat-menu #statisticsSubMenu="matMenu">
+    <button mat-menu-item disabled (click)="onMenuClick($event)">Summary</button>
+    <button mat-menu-item disabled (click)="onMenuClick($event)">Protocol Hierarchy</button>
+    <button mat-menu-item disabled (click)="onMenuClick($event)">Conversations</button>
+    <button mat-menu-item disabled (click)="onMenuClick($event)">Endpoints</button>
+    <button mat-menu-item disabled (click)="onMenuClick($event)">Packet Lengths</button>
+    <button mat-menu-item disabled (click)="onMenuClick($event)">I/O Graph</button>
+    <button mat-menu-item disabled (click)="onMenuClick($event)">Service Response Time</button>
+  </mat-menu>
+</mat-menu>
+<mat-menu #statisticsMenu="matMenu">
+  <button mat-menu-item disabled (click)="onMenuClick($event)">Capture File Properties</button>
+  <button mat-menu-item disabled (click)="onMenuClick($event)">Resolved Addresses</button>
+  <button mat-menu-item disabled (click)="onMenuClick($event)">Protocol Hierarchy</button>
+  <button mat-menu-item disabled (click)="onMenuClick($event)">Conversations</button>
+  <button mat-menu-item disabled (click)="onMenuClick($event)">Endpoints</button>
+  <button mat-menu-item disabled (click)="onMenuClick($event)">Packet Lengths</button>
+  <button mat-menu-item [matMenuTriggerFor]="ioGraphMenu">I/O Graphs</button>
+  <mat-menu #ioGraphMenu="matMenu">
+    <button mat-menu-item disabled (click)="onMenuClick($event)">Graph 1</button>
+    <button mat-menu-item disabled (click)="onMenuClick($event)">Graph 2</button>
+  </mat-menu>
+  <button mat-menu-item [matMenuTriggerFor]="serviceResponseTimeMenu">Service Response Time</button>
+  <mat-menu #serviceResponseTimeMenu="matMenu">
+    <button mat-menu-item disabled (click)="onMenuClick($event)">HTTP</button>
+    <button mat-menu-item disabled (click)="onMenuClick($event)">DNS</button>
+  </mat-menu>
+  <button mat-menu-item [disabled]="false" (click)="onMenuClick('DHCP (BOOTP) Statistics', {type: 'DHCP-statistics'})">DHCP (BOOTP) Statistics</button>
+  <button mat-menu-item [disabled]="false" (click)="onMenuClick('NetPerfMeter Statistics', {type: 'NetPerfMeter-Statistics'})">NetPerfMeter Statistics</button>
+  <button mat-menu-item disabled (click)="onMenuClick($event)">ONC-RPC Programs</button>
+  <button mat-menu-item [matMenuTriggerFor]="otherProtocolsMenu">Other
+    Protocols</button>
+  <mat-menu #otherProtocolsMenu="matMenu">
+    <button mat-menu-item disabled (click)="onMenuClick($event)">29West</button>
+    <button mat-menu-item disabled (click)="onMenuClick($event)">ANCP</button>
+    <button mat-menu-item disabled (click)="onMenuClick($event)">BACnet</button>
+    <button mat-menu-item [matMenuTriggerFor]="dnsMenu">DNS</button>
+    <mat-menu #dnsMenu="matMenu">
+      <button mat-menu-item disabled (click)="onMenuClick($event)">Statistics</button>
+      <button mat-menu-item disabled (click)="onMenuClick($event)">Cache</button>
+    </mat-menu>
+    <button mat-menu-item disabled (click)="onMenuClick($event)">HTTP</button>
+    <button mat-menu-item disabled (click)="onMenuClick($event)">HTTP/2</button>
+    <button mat-menu-item disabled (click)="onMenuClick($event)">Flow Graph</button>
+    <button mat-menu-item [matMenuTriggerFor]="tcpStreamGraphsMenu">TCP Stream
+      Graphs</button>
+    <mat-menu #tcpStreamGraphsMenu="matMenu">
+      <button mat-menu-item disabled (click)="onMenuClick($event)">Round Trip Time</button>
+      <button mat-menu-item disabled (click)="onMenuClick($event)">Throughput</button>
+    </mat-menu>
+    <button mat-menu-item disabled (click)="onMenuClick($event)">UDP Multicast Streams</button>
+    <button mat-menu-item disabled (click)="onMenuClick($event)">Reliable Server Pooling</button>
+    <button mat-menu-item disabled (click)="onMenuClick($event)">SOME/IP</button>
+  </mat-menu>
+  <button mat-menu-item disabled (click)="onMenuClick($event)">F5 Statistics</button>
+  <button mat-menu-item [disabled]="false" (click)="onMenuClick('IPv4 Statistics', {type: 'ipv4-statistics'})">IPv4 Statistics</button>
+  <button mat-menu-item [disabled]="false" (click)="onMenuClick('IPv6 Statistics', {type: 'ipv6-statistics'})">IPv6 Statistics</button>
+</mat-menu>
+<mat-menu #telephonyMenu="matMenu">
+  <button mat-menu-item disabled (click)="onMenuClick($event)">VoIP Calls</button>
+  <button mat-menu-item [disabled]="false" (click)="onMenuClick('SIP Flows', {type: 'flow'})">SIP Flows</button>
+  <button mat-menu-item [matMenuTriggerFor]="rtpMenu">RTP</button>
+  <mat-menu #rtpMenu="matMenu">
+    <button mat-menu-item [disabled]="false" (click)="onMenuClick('Show All Streams', {type: 'rtp-streams'})">Show All Streams</button>
+    <button mat-menu-item disabled (click)="onMenuClick($event)">Stream Analysis</button>
+    <button mat-menu-item disabled (click)="onMenuClick($event)">RTP Player</button>
+  </mat-menu>
+  <button mat-menu-item disabled (click)="onMenuClick($event)">RTCP</button>
+  <button mat-menu-item disabled (click)="onMenuClick($event)">MGCP</button>
+  <button mat-menu-item disabled (click)="onMenuClick($event)">H.323</button>
+  <button mat-menu-item disabled (click)="onMenuClick($event)">ISUP</button>
+  <button mat-menu-item [matMenuTriggerFor]="diameterMenu">Diameter</button>
+  <mat-menu #diameterMenu="matMenu">
+    <button mat-menu-item disabled (click)="onMenuClick($event)">Sessions</button>
+    <button mat-menu-item disabled (click)="onMenuClick($event)">Statistics</button>
+  </mat-menu>
+  <button mat-menu-item [matMenuTriggerFor]="mtp3Menu">MTP3</button>
+  <mat-menu #mtp3Menu="matMenu">
+    <button mat-menu-item disabled (click)="onMenuClick($event)">Statistics</button>
+    <button mat-menu-item disabled (click)="onMenuClick($event)">Messages</button>
+  </mat-menu>
+</mat-menu>
+
+<mat-menu #toolsMenu="matMenu">
+  <button mat-menu-item disabled (click)="onMenuClick($event)">Plugins</button>
+  <button mat-menu-item disabled (click)="onMenuClick($event)">Lua Console</button>
+  <button mat-menu-item [matMenuTriggerFor]="expertInfoMenu">Expert
+    Information</button>
+  <mat-menu #expertInfoMenu="matMenu">
+    <button mat-menu-item disabled (click)="onMenuClick($event)">Warnings</button>
+    <button mat-menu-item disabled (click)="onMenuClick($event)">Notes</button>
+    <button mat-menu-item disabled (click)="onMenuClick($event)">Details</button>
+  </mat-menu>
+  <button mat-menu-item disabled (click)="onMenuClick($event)">Statistics Consoles</button>
+  <button mat-menu-item [matMenuTriggerFor]="debuggingToolsMenu">Debugging
+    Tools</button>
+  <mat-menu #debuggingToolsMenu="matMenu">
+    <button mat-menu-item disabled (click)="onMenuClick($event)">Packet Loss</button>
+    <button mat-menu-item disabled (click)="onMenuClick($event)">Performance Metrics</button>
+  </mat-menu>
+</mat-menu>
+<!-- File Menu -->
+<mat-menu #fileMenu="matMenu">
+  <button mat-menu-item disabled disabled (click)="onMenuClick('File>New')">New</button>
+  <button mat-menu-item disabled (click)="onMenuClick('File>Open')">Open</button>
+  <button mat-menu-item [matMenuTriggerFor]="fileOpenRecentMenu">Open
+    Recent</button>
+  <mat-menu #fileOpenRecentMenu="matMenu">
+    <button mat-menu-item disabled (click)="onMenuClick('File>Open Recent>File1')">File1</button>
+    <button mat-menu-item disabled (click)="onMenuClick('File>Open Recent>File2')">File2</button>
+    <button mat-menu-item disabled (click)="onMenuClick('File>Open Recent>Clear Recent Files')">Clear Recent
+      Files</button>
+  </mat-menu>
+  <button mat-menu-item disabled (click)="onMenuClick('File>Merge')">Merge</button>
+  <button mat-menu-item disabled (click)="onMenuClick('File>Import from Hex Dump')">Import from Hex Dump</button>
+  <button mat-menu-item disabled (click)="onMenuClick('File>Close')">Close</button>
+  <button mat-menu-item disabled (click)="onMenuClick('File>Save')">Save</button>
+  <button mat-menu-item disabled (click)="onMenuClick('File>Save As')">Save As</button>
+  <button mat-menu-item [matMenuTriggerFor]="fileSetMenu">File
+    Set</button>
+  <mat-menu #fileSetMenu="matMenu">
+    <button mat-menu-item disabled (click)="onMenuClick('File>File Set>List Files')">List Files</button>
+    <button mat-menu-item disabled (click)="onMenuClick('File>File Set>Next File')">Next File</button>
+    <button mat-menu-item disabled (click)="onMenuClick('File>File Set>Previous File')">Previous File</button>
+  </mat-menu>
+  <button mat-menu-item [matMenuTriggerFor]="exportMenu">Export</button>
+  <mat-menu #exportMenu="matMenu">
+    <button mat-menu-item [matMenuTriggerFor]="exportObjectsMenu">Objects</button>
+    <mat-menu #exportObjectsMenu="matMenu">
+      <button mat-menu-item disabled (click)="onMenuClick('File>Export>Objects>HTTP')">HTTP</button>
+      <button mat-menu-item disabled (click)="onMenuClick('File>Export>Objects>DICOM')">DICOM</button>
+      <button mat-menu-item disabled (click)="onMenuClick('File>Export>Objects>IMF')">IMF</button>
+      <button mat-menu-item disabled (click)="onMenuClick('File>Export>Objects>SMB')">SMB</button>
+    </mat-menu>
+    <button mat-menu-item disabled (click)="onMenuClick('File>Export>Packet Dissections')">Packet Dissections</button>
+    <button mat-menu-item disabled (click)="onMenuClick('File>Export>Specified Packets')">Specified Packets</button>
+    <button mat-menu-item disabled (click)="onMenuClick('File>Export>PDML File')">PDML File</button>
+    <button mat-menu-item disabled (click)="onMenuClick('File>Export>PSML File')">PSML File</button>
+    <button mat-menu-item disabled (click)="onMenuClick('File>Export>CSV File')">CSV File</button>
+    <button mat-menu-item disabled (click)="onMenuClick('File>Export>Plain Text')">Plain Text File</button>
+    <button mat-menu-item disabled (click)="onMenuClick('File>Export>JSON File')">JSON File</button>
+  </mat-menu>
+  <button mat-menu-item disabled (click)="onMenuClick('File>Print')">Print</button>
+  <button mat-menu-item disabled (click)="onMenuClick('File>Quit')">Quit</button>
+</mat-menu>
+
+<!-- Edit Menu -->
+<mat-menu #editMenu="matMenu">
+  <button mat-menu-item disabled (click)="onMenuClick($event)">Find Packet</button>
+  <button mat-menu-item disabled (click)="onMenuClick($event)">Preferences</button>
+  <button mat-menu-item [matMenuTriggerFor]="configProfilesMenu">Configuration Profiles</button>
+  <mat-menu #configProfilesMenu="matMenu">
+    <button mat-menu-item disabled (click)="onMenuClick($event)">New Profile</button>
+    <button mat-menu-item disabled (click)="onMenuClick($event)">Copy Profile</button>
+    <button mat-menu-item disabled (click)="onMenuClick($event)">Delete Profile</button>
+    <button mat-menu-item disabled (click)="onMenuClick($event)">Rename Profile</button>
+  </mat-menu>
+</mat-menu>
+
+<!-- View Menu -->
+<mat-menu #viewMenu="matMenu">
+  <button mat-menu-item disabled (click)="onMenuClick($event)">Main Toolbar</button>
+  <button mat-menu-item disabled (click)="onMenuClick($event)">Filter Toolbar</button>
+  <button mat-menu-item disabled (click)="onMenuClick($event)">Status Bar</button>
+  <button mat-menu-item [matMenuTriggerFor]="timeDisplayFormatMenu">Time Display Format</button>
+  <mat-menu #timeDisplayFormatMenu="matMenu">
+    <button mat-menu-item disabled (click)="onMenuClick($event)">Date and Time of Day</button>
+    <button mat-menu-item disabled (click)="onMenuClick($event)">Seconds Since Beginning of Capture</button>
+    <button mat-menu-item disabled (click)="onMenuClick($event)">Seconds Since Previous Captured Packet</button>
+    <button mat-menu-item disabled (click)="onMenuClick($event)">Seconds Since Previous Displayed Packet</button>
+  </mat-menu>
+</mat-menu>
+
+<!-- Help Menu -->
+<mat-menu #helpMenu="matMenu">
+  <button mat-menu-item disabled (click)="onMenuClick($event)">Contents</button>
+  <button mat-menu-item disabled (click)="onMenuClick($event)">Manual Pages</button>
+  <button mat-menu-item disabled (click)="onMenuClick($event)">WebShark Online</button>
+  <button mat-menu-item disabled (click)="onMenuClick($event)">WebShark Wiki</button>
+  <button mat-menu-item disabled (click)="onMenuClick($event)">Sample Captures</button>
+  <button mat-menu-item disabled (click)="onMenuClick($event)">Protocol Reference</button>
+  <button mat-menu-item disabled (click)="onMenuClick($event)">About WebShark</button>
+</mat-menu>

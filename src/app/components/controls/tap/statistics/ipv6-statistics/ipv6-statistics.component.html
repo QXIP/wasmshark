@@ -1,0 +1,26 @@
+<div *ngIf="ipv6Stats">
+  <p><strong>Total Packets</strong>: {{ ipv6Stats.totalPackets }}</p>
+  <p><strong>Total Bytes</strong>: {{ ipv6Stats.totalBytes }}</p>
+  <p><strong>Unique Source IPs</strong>: {{ ipv6Stats.uniqueSourceIPs.join(', ') }}</p>
+  <p><strong>Unique Destination IPs</strong>: {{ ipv6Stats.uniqueDestinationIPs.join(', ') }}</p>
+
+  <h4>Packets by Source</h4>
+  <div *ngFor="let source of (ipv6Stats.packetCountsBySource | keyvalue)">
+    <strong>{{ source.key }}</strong>: {{ source.value }} packets
+  </div>
+
+  <h4>Packets by Destination</h4>
+  <div *ngFor="let destination of (ipv6Stats.packetCountsByDestination | keyvalue)">
+    <strong>{{ destination.key }}</strong>: {{ destination.value }} packets
+  </div>
+
+  <h4>Bytes by Source</h4>
+  <div *ngFor="let source of (ipv6Stats.bytesBySource | keyvalue)">
+    <strong>{{ source.key }}</strong>: {{ source.value }} bytes
+  </div>
+
+  <h4>Bytes by Destination</h4>
+  <div *ngFor="let destination of (ipv6Stats.bytesByDestination | keyvalue)">
+    <strong>{{ destination.key }}</strong>: {{ destination.value }} bytes
+  </div>
+</div>
