@@ -32,8 +32,8 @@
               </div>
             </div>
           </th>
-          <td *matCellDef="let element">
-            {{ element?.[item] }}
+          <td *matCellDef="let element" style="padding-left: 1rem;">
+            {{ element?.[getKeyBy(item) || item] }}
           </td>
         </ng-container>
       </ng-container>

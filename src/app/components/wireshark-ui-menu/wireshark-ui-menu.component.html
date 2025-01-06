@@ -10,10 +10,10 @@
   <button mat-button [matMenuTriggerFor]="helpMenu">Help</button>
 </mat-toolbar>
 <mat-menu #captureMenu="matMenu">
-  <button mat-menu-item [disabled]="false" (click)="onMenuClick('File>Options')">Options</button>
-  <button mat-menu-item [disabled]="false" (click)="onMenuClick('File>Start')">Start</button>
-  <button mat-menu-item [disabled]="false" (click)="onMenuClick('File>Restart')">Restart</button>
-  <button mat-menu-item [disabled]="false" (click)="onMenuClick('File>Stop')">Stop</button>
+  <button mat-menu-item [disabled]="true" (click)="onMenuClick('File>Options')">Options</button>
+  <button mat-menu-item [disabled]="true" (click)="onMenuClick('File>Start')">Start</button>
+  <button mat-menu-item [disabled]="true" (click)="onMenuClick('File>Restart')">Restart</button>
+  <button mat-menu-item [disabled]="true" (click)="onMenuClick('File>Stop')">Stop</button>
   <button mat-menu-item [matMenuTriggerFor]="captureFiltersMenu">Capture Filters</button>
   <mat-menu #captureFiltersMenu="matMenu">
     <button mat-menu-item disabled (click)="onMenuClick('File>Capture Filters>Manage Filters')">Manage Filters</button>
@@ -84,8 +84,8 @@
     <button mat-menu-item disabled (click)="onMenuClick($event)">HTTP</button>
     <button mat-menu-item disabled (click)="onMenuClick($event)">DNS</button>
   </mat-menu>
-  <button mat-menu-item disabled (click)="onMenuClick($event)">DHCP (BOOTP) Statistics</button>
-  <button mat-menu-item disabled (click)="onMenuClick($event)">NetPerfMeter Statistics</button>
+  <button mat-menu-item [disabled]="false" (click)="onMenuClick('DHCP (BOOTP) Statistics', {type: 'DHCP-statistics'})">DHCP (BOOTP) Statistics</button>
+  <button mat-menu-item [disabled]="false" (click)="onMenuClick('NetPerfMeter Statistics', {type: 'NetPerfMeter-Statistics'})">NetPerfMeter Statistics</button>
   <button mat-menu-item disabled (click)="onMenuClick($event)">ONC-RPC Programs</button>
   <button mat-menu-item [matMenuTriggerFor]="otherProtocolsMenu">Other
     Protocols</button>
@@ -113,7 +113,7 @@
   </mat-menu>
   <button mat-menu-item disabled (click)="onMenuClick($event)">F5 Statistics</button>
   <button mat-menu-item [disabled]="false" (click)="onMenuClick('IPv4 Statistics', {type: 'ipv4-statistics'})">IPv4 Statistics</button>
-  <button mat-menu-item disabled (click)="onMenuClick($event)">IPv6 Statistics</button>
+  <button mat-menu-item [disabled]="false" (click)="onMenuClick('IPv6 Statistics', {type: 'ipv6-statistics'})">IPv6 Statistics</button>
 </mat-menu>
 <mat-menu #telephonyMenu="matMenu">
   <button mat-menu-item disabled (click)="onMenuClick($event)">VoIP Calls</button>

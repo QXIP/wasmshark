@@ -153,11 +153,12 @@ export class WiregasmService {
         n,
         pn: ['#000']
       });
-      console.log(n, outItem)
+      // console.log(n, outItem)
     })
     return out;
   }
-  private _hostsBuffer: any[] = []
+  private _hostsBuffer: any[] = [];
+
   getHosts() { // array of IPs
     if (this._hostsBuffer.length == 0) {
       this._hostsBuffer = [].concat([], ...this.allFrameDataArrayForFilter.map((i: any) => {
@@ -170,7 +171,9 @@ export class WiregasmService {
 
   parseFrame(arrData: any[], isForFilter = true) {
     const out: any = {};
+
     const outFilter: any = [];
+
     const parseTree = (arr: any) => {
       arr.forEach((i: any) => {
         const [key, val] = (i.filter).split(' == ');
@@ -186,6 +189,7 @@ export class WiregasmService {
   }
   allFrameDataArray: any[] = [];
   allFrameDataArrayForFilter: any[] = [];
+  allFrameDataArrayForFilterAsObject: any[] = [];
 
   async getAllFrameData(n = 1): Promise<any> {
     const out = (await this.getFrameData(n));
@@ -261,28 +265,16 @@ export class WiregasmService {
     const reader = new FileReader();
     reader.onload = (e: any) => {
       const arrayBuffer: any = e.target.result;
-      // Создаем Blob из ArrayBuffer
       const blob = new Blob([arrayBuffer], { type: fileToUpload.type });
-      // Теперь переменная blob содержит бинарные данные файла
       this.blobFile = blob;
-
     };
     reader.readAsArrayBuffer(fileToUpload);
-
 
     return new Observable((observe) => {
       // worker.postMessage({ type: "process", file: file });
       this.worker.postMessage({ type: "process", file: fileToUpload });
       observe.next({});
       observe.complete();
-    })
-    // const formData: FormData = new FormData();
-    // formData.append('fileKey', fileToUpload, fileToUpload.name);
-    // const url = isDataTimeNow ? this.urlUpload + '/now' : this.urlUpload;
-
-    // return this.http.post(url, formData).pipe(map(() => {
-    //   this.setCaptureFile(fileToUpload.name);
-    //   this.behavior.next({ cm: 'uploaded' });
-    // }));
+    });
   }
 }

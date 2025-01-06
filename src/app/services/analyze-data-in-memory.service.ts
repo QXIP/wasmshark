@@ -4,18 +4,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AnalyzeDataInMemoryService {
-
-  constructor() {
-
-  }
-  getDataByTapKey(tapKey: string): any {
-    if(this.mapFunctions[tapKey]) {
-
-      return this.mapFunctions[tapKey]();
-    }
-    return {error: true, `tapKey: ${tapKey} does not exist`}
-
-  }
   mapFunctions: any = {
     "stat:lbmr_queue_ads_queue": () => {
       return {};
@@ -513,4 +501,16 @@ export class AnalyzeDataInMemoryService {
       return {};
     }
   }
+  constructor() {
+
+  }
+  getDataByTapKey(tapKey: string): any {
+    if(this.mapFunctions[tapKey]) {
+
+      return this.mapFunctions[tapKey]();
+    }
+    return {error: true, `tapKey: ${tapKey} does not exist`}
+
+  }
+
 }

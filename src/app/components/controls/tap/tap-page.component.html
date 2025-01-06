@@ -8,6 +8,18 @@
       <app-ipv4-statistics [data]="jsonData || []"></app-ipv4-statistics>
     </ng-template>
 
+    <ng-template ngSwitchCase="ipv6-statistics">
+      <app-ipv6-statistics [data]="jsonData || []"></app-ipv6-statistics>
+    </ng-template>
+
+    <ng-template ngSwitchCase="DHCP-statistics">
+      <app-DHCP-statistics></app-DHCP-statistics>
+    </ng-template>
+
+    <ng-template ngSwitchCase="NetPerfMeter-Statistics">
+      <app-NetPerfMeter-Statistics></app-NetPerfMeter-Statistics>
+    </ng-template>
+
     <ng-template ngSwitchCase="rtp-streams">
       <tap-rtp-streams [data]="jsonData || []"></tap-rtp-streams>
     </ng-template>
