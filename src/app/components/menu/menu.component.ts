@@ -1,7 +1,7 @@
 import { ModalResizableService } from './../controls/modal-resizable/modal-resizable.service';
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
-import { WebSharkDataService } from '@app/services/web-shark-data.service';
 import { WiregasmService } from '@app/services/wiregasm.service';
+import menu_data from '@app/helper/menu_data.json';
 
 @Component({
   selector: 'app-menu',
@@ -24,7 +24,13 @@ export class MenuComponent implements OnInit {
   }
 
   public onMenuClick(link: string, name: string) {
-    this.modalResizableService.open({ link, name });
+    this.modalResizableService.open({
+      link: {
+        name,
+        tap: link,
+        type: link,
+      }
+    });
     this.cdr.detectChanges();
   }
 
@@ -32,20 +38,24 @@ export class MenuComponent implements OnInit {
     try {
       this.menuTreeIndex = [];
       // console.log('MENU:ngOnInit()')
-      const {
-        stats = [], nstat = [], convs = [],
-        seqa = [], taps = [], eo = [],
-        srt = [], rtd = [], columns = [],
-        ftypes = [], version = [], follow = []
-      } = await this.webSharkDataService.getInfo();
+      const info = await this.webSharkDataService.getInfo();
+      const fallback = menu_data as any;
+      const stats = info?.stats?.length ? info.stats : (fallback.stats || []);
+      const nstat = info?.nstat?.length ? info.nstat : (fallback.nstat || []);
+      const convs = info?.convs?.length ? info.convs : (fallback.convs || []);
+      const seqa = info?.seqa?.length ? info.seqa : (fallback.seqa || []);
+      const taps = info?.taps?.length ? info.taps : (fallback.taps || []);
+      const eo = info?.eo?.length ? info.eo : (fallback.eo || []);
+      const srt = info?.srt?.length ? info.srt : (fallback.srt || []);
+      const rtd = info?.rtd?.length ? info.rtd : (fallback.rtd || []);
 
       const menuCollection = [
-        // { name: 'Endpoints', children: [...convs] },
-        // { name: 'Response Time', children: [...srt, ...rtd] },
-        // { name: 'Statistics', children: [...stats, ...nstat] },
-        // { name: 'Export Objects', children: [...eo] },
-        { name: 'menu', children: [...taps, ...seqa] }
-      ];
+        { name: 'Endpoints', children: [...convs] },
+        { name: 'Response Time', children: [...srt, ...rtd] },
+        { name: 'Statistics', children: [...stats, ...nstat, ...taps] },
+        { name: 'Export Objects', children: [...eo] },
+        { name: 'Analyze', children: [...seqa] }
+      ].filter((section) => section.children.length > 0);
 
       this.menuTree = menuCollection.map(menu => {
         // console.log(menu.children);

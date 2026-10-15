@@ -25,8 +25,8 @@ export class HomeComponent implements OnInit {
     this.isFileOnLink = !location.hash;
     this.files = this.isFileOnLink;
     this.modalResizableService.event.subscribe(({ open, data }) => {
-      if (open) {
-        this.dialogs.push(data.link)
+      if (open && data?.link) {
+        this.dialogs.push(data.link);
       }
     });
 

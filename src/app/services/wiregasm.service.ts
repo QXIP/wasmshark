@@ -33,6 +33,10 @@ export class WiregasmService {
         if (typeof data === 'object' && data?.type === 'processed') {
           this._Frames = data.data.table;
           this._frame1 = data.data.frame1;
+          this._hostsBuffer = [];
+          this.allFrameDataArray = [];
+          this.allFrameDataArrayForFilter = [];
+          this.allFrameDataArrayForFilterAsObject = [];
 
           const allFrames = await this.getAllFrameData();
           console.log('done parse all this._Frames===>', this._Frames);
@@ -72,7 +76,9 @@ export class WiregasmService {
     console.warn('setFilter', filter)
     // 'filter='+encodeURIComponent(`sip.Via.received == "195.138.93.233"`)
     StaticData.filter = filter;
+    this._hostsBuffer = [];
     this.behavior.next({});
+    this.updates.next({ filter });
   }
   public getFilter(): string {
     console.warn('getFilter', StaticData.filter)
@@ -139,32 +145,69 @@ export class WiregasmService {
     // }
     // return this.httpGet('frames', { limit });
   }
+  private getFilteredFrameIndices(): number[] {
+    const filterText = (StaticData.filter || '').trim().toLowerCase();
+    if (!filterText) {
+      return this.allFrameDataArrayForFilter.map((_, index) => index);
+    }
+    const indices: number[] = [];
+    this.allFrameDataArrayForFilter.forEach((item: any, k: number) => {
+      const haystack = item.join(' ').toLowerCase();
+      if (haystack.includes(filterText)) {
+        indices.push(k);
+      }
+    });
+    return indices;
+  }
+
+  private formatFlowTimestamp(raw: string): string {
+    if (!raw) {
+      return '';
+    }
+    const date = new Date(raw);
+    if (Number.isNaN(date.getTime())) {
+      return raw;
+    }
+    const ms = String(date.getUTCMilliseconds()).padStart(3, '0');
+    return `${date.toISOString().slice(11, 23)}.${ms}`;
+  }
+
   getFlowItems() {
     const out: any[] = [];
-    this.allFrameDataArrayForFilter.forEach((item: any, k: number) => {
+    const hosts = this.getHosts();
+    const frameIndices = this.getFilteredFrameIndices();
+    frameIndices.forEach((k: number) => {
+      const item = this.allFrameDataArrayForFilter[k];
+      if (!item || !this._Frames?.[k]) {
+        return;
+      }
       const outItem = item.filter((j: any) => j.includes('ip.src') || j.includes('ip.dst'));
       const nn = outItem.map((i: any) => i.split(' == ')[1]);
-      const n = nn.map((i: any) => this._hostsBuffer.findIndex(j => j == i))
-      let t = item.filter((j: any) => j.includes('frame.time == ')).join('').split(' == ')[1];
-      t = new Date(t).toLocaleTimeString() + '.' + new Date(t).getMilliseconds();
+      const n = nn.map((i: any) => hosts.findIndex(j => j == i)).filter((i: number) => i >= 0);
+      if (n.length < 2) {
+        return;
+      }
+      const timeField = item.find((j: any) => j.includes('frame.time == ')) || '';
+      const rawTime = timeField.split(' == ')[1] || '';
       out.push({
         c: this._Frames[k].colData[6],
-        t,
+        t: this.formatFlowTimestamp(rawTime),
         n,
         pn: ['#000']
       });
-      // console.log(n, outItem)
-    })
+    });
     return out;
   }
   private _hostsBuffer: any[] = [];
 
   getHosts() { // array of IPs
     if (this._hostsBuffer.length == 0) {
-      this._hostsBuffer = [].concat([], ...this.allFrameDataArrayForFilter.map((i: any) => {
+      const frameIndices = this.getFilteredFrameIndices();
+      this._hostsBuffer = [].concat([], ...frameIndices.map((frameIndex: number) => {
+        const i = this.allFrameDataArrayForFilter[frameIndex];
         const out = i.filter((j: any) => j.includes('ip.src') || j.includes('ip.dst'));
-        return out.map((i: any) => i.split(' == ')[1]);
-      })).sort().filter((i, k, a) => a[k - 1] != i)
+        return out.map((addr: any) => addr.split(' == ')[1]);
+      })).sort().filter((host, k, a) => a[k - 1] != host);
     }
     return this._hostsBuffer;
   }
