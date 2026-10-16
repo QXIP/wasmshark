@@ -55,7 +55,7 @@ export class MenuComponent implements OnInit {
         { name: 'Statistics', children: [...stats, ...nstat, ...taps] },
         { name: 'Export Objects', children: [...eo] },
         { name: 'Analyze', children: [...seqa] }
-      ].filter((section) => section.children.length > 0);
+      ];
 
       this.menuTree = menuCollection.map(menu => {
         // console.log(menu.children);
