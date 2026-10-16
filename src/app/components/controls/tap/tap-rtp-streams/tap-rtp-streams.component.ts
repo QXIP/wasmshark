@@ -35,7 +35,7 @@ export class TapRtpStreamsComponent implements OnInit {
     this._data = val;
     this.streams = (val?.streams || []).map((stream: any) => ({ ...stream }));
     const [stream] = this.streams || [];
-    this.columns = Object.keys(stream || {}).filter((key) => key !== '__selected');
+    this.columns = Object.keys(stream || {}).filter((key) => key !== '__selected' && key !== 'taps');
   }
   get data(): any {
     return this._data;
@@ -53,7 +53,11 @@ export class TapRtpStreamsComponent implements OnInit {
     return this.webSharkDataService.getCapture();
   }
   getKeys(obj: any) {
-    return Object.keys(obj).filter(i => i !== '__selected');
+    return Object.keys(obj).filter((i) => i !== '__selected' && i !== 'taps');
+  }
+
+  private hasServerStreamTable(): boolean {
+    return this.streams.some((stream) => stream?.ssrc && Object.keys(stream).some((key) => key !== 'ssrc' && key !== '__selected'));
   }
   async getFileArrayOfUint8Array(filename: string) {
     const href = encodeURIComponent('/' + filename);
@@ -138,9 +142,11 @@ export class TapRtpStreamsComponent implements OnInit {
     const arrSSRC = Object.keys(_collect);
     console.log({ _collect, rtpStreams });
 
-    this.streams = arrSSRC.map(i => {
-      return { ssrc: i }
-    });
+    if (!this.hasServerStreamTable()) {
+      this.streams = arrSSRC.map((i) => ({ ssrc: i }));
+      const [stream] = this.streams;
+      this.columns = Object.keys(stream || {}).filter((key) => key !== '__selected' && key !== 'taps');
+    }
 
     // return [];
     const arr = arrSSRC.map((streamData: string) => {
@@ -259,7 +265,7 @@ export class TapRtpStreamsComponent implements OnInit {
       playerElement = {
         id,
         mp3: this.audioStreamsBlobURL.find(i => i.ssrc.toUpperCase() === row.ssrc.toUpperCase())?.blobUrl,
-        rowData: {ssrc: row.ssrc} as any,
+        rowData: { ...row },
       };
 
       requestAnimationFrame(() => {
