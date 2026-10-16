@@ -2,7 +2,6 @@ import { NoDataModule } from './../no-data/no-data.module';
 import { FlexibleChartModule } from './../flexible-chart/flexible-chart.module';
 import { TreeFilterModule } from './../tree-filter/tree-filter.module';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { HtmlPipe } from './html.pipe';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { WebsharkComponent } from './webshark.component';
@@ -48,7 +47,6 @@ import { WiresharkUiMenuModule } from '@app/components/wireshark-ui-menu/wiresha
   declarations: [
     MenuStatComponent,
     WebsharkComponent,
-    HtmlPipe,
   ],
   exports: [WebsharkComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

@@ -8,7 +8,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
-import { HtmlPipe } from './html.pipe';
 @NgModule({
   imports: [
     CommonModule,
@@ -21,8 +20,7 @@ import { HtmlPipe } from './html.pipe';
     FormsModule
   ],
   declarations: [
-    TreeFilterComponent,
-    HtmlPipe
+    TreeFilterComponent
   ],
   exports: [TreeFilterComponent]
 })

@@ -80,6 +80,11 @@ $primary: map.get($my-theme, 'primary');
     cursor: pointer;
   }
 
+  .tree-suffix {
+    color: #999;
+    font-style: italic;
+  }
+
   &>div {
     flex: 1;
     overflow: auto;

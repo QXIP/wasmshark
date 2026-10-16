@@ -8,8 +8,18 @@
   [(ngModel)]="textFilterTree"
   (keyup)="onKeyUpFilterTree()"
   matTooltip="Use symbol || (logical OR) for multiple filtering, EXAMPLE: point1||point2||point3">
-<div class="field-sticky color"
-  [innerHTML]="highlight(textFilterTree, true) | html"></div>
+<div class="field-sticky color">
+  <ng-container *ngTemplateOutlet="highlighted; context: { $implicit: textFilterTree, redial: true }"></ng-container>
+</div>
+<ng-template #highlighted let-text let-redial="redial">
+  <ng-container *ngFor="let part of highlight(text, redial)">
+    <span *ngIf="part.match"
+      [style.background-color]="part.color"
+      [style.color]="part.textColor"
+      [style.border-radius]="part.radius">{{ part.text }}</span>
+    <ng-container *ngIf="!part.match">{{ part.text }}</ng-container>
+  </ng-container>
+</ng-template>
 <mat-tree [dataSource]="dataSource"
   [treeControl]="treeControl"
   #tree>
@@ -27,8 +37,12 @@
       class="files file"
       color="primary">insert_drive_file </mat-icon>
     <span class="line-html"
-      [innerHTML]=" highlight(node.name) | html "
-      (click)="onClickLine(node)"></span>
+      (click)="onClickLine(node)">
+      <ng-container *ngTemplateOutlet="highlighted; context: { $implicit: node.name }"></ng-container>
+      <span class="tree-suffix" *ngIf="node.suffix">
+        <ng-container *ngTemplateOutlet="highlighted; context: { $implicit: node.suffix }"></ng-container>
+      </span>
+    </span>
     <button mat-icon-button
       *ngIf="isFilter"
       (click)="setFilterGrid(node.description)">
@@ -45,7 +59,7 @@
     matTreeNodePadding>
     <button mat-icon-button
       matTreeNodeToggle
-      [attr.aria-label]="'Toggle ' + node.name">
+      [attr.aria-label]="'Toggle ' + node.name + (node.suffix || '')">
       <mat-icon class="mat-icon-rtl-mirror">
         {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
       </mat-icon>
@@ -55,9 +69,13 @@
       color="primary">folder</mat-icon>
     <span class="line-html"
       matTreeNodeToggle
-      [attr.aria-label]="'Toggle ' + node.name"
-      [innerHTML]=" highlight(node.name) | html "
-      (click)="onClickLine(node)"></span>
+      [attr.aria-label]="'Toggle ' + node.name + (node.suffix || '')"
+      (click)="onClickLine(node)">
+      <ng-container *ngTemplateOutlet="highlighted; context: { $implicit: node.name }"></ng-container>
+      <span class="tree-suffix" *ngIf="node.suffix">
+        <ng-container *ngTemplateOutlet="highlighted; context: { $implicit: node.suffix }"></ng-container>
+      </span>
+    </span>
     <button mat-icon-button
       *ngIf="isFilter"
       (click)="setFilterGrid(node.description)">

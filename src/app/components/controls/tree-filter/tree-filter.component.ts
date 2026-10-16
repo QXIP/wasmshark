@@ -1,4 +1,5 @@
 import { Functions } from '@app/helper/functions';
+import { highlightHtml } from './highlight-html';
 import { Component, OnInit, ChangeDetectorRef, ChangeDetectionStrategy, EventEmitter, Output, AfterViewInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FlatTreeControl } from '@angular/cdk/tree';
 import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
@@ -6,6 +7,7 @@ import { Input } from '@angular/core';
 
 interface TreeNode {
   name: string;
+  suffix?: string;
   description?: any;
   highlight?: [],
   children?: TreeNode[];
@@ -14,6 +16,7 @@ interface TreeNode {
 interface FlatNode {
   expandable: boolean;
   name: string;
+  suffix?: string;
   description?: any;
   highlight?: [],
   hide?: boolean;
@@ -55,7 +58,8 @@ export class TreeFilterComponent implements OnInit, AfterViewInit {
         const o = convertObjectToTreeData(value);
         const _length = Object.keys(value).length;
         return {
-          name: `${key}: <i style="color: #999;">[${_length}] ${JSON.stringify(value)}</i>`,
+          name: `${key}: `,
+          suffix: `[${_length}] ${JSON.stringify(value)}`,
           description: key,
           children: o
         }
@@ -71,8 +75,8 @@ export class TreeFilterComponent implements OnInit, AfterViewInit {
     this.dataIndex = [];
     // console.log('this.dataSource.data = val;')
     const pushToIndex = (i: any) => {
-      i.forEach(({ name, description, children }: any) => {
-        const o: any = { name, description: description || name };
+      i.forEach(({ name, suffix, description, children }: any) => {
+        const o: any = { name: `${name}${suffix || ''}`, description: description || name };
         if (children) {
           o.children = (JSON.stringify(children) + '').replace(/[\W]+/g, ' ').toLowerCase();
         }
@@ -130,33 +134,23 @@ export class TreeFilterComponent implements OnInit, AfterViewInit {
       highlight: node.highlight,
       hide: node.hide,
       name: node.name,
+      suffix: node.suffix,
       level: level,
     };
   }
   highlight(text: any, isRedial = false) {
-    if (this.textFilterTree === '') {
-      return text;
-    }
-    const arr = this.textFilterTree.split('||');
-    let outText = text;
-    arr.forEach((f, key) => {
-      const color = ['yellow', '#ffcaca', '#b7f875', '#86f2fb', '#DD99FF', '#eea371'][key % 6];
-      const redial = isRedial ? 'border-radius: 4px;' : 'color: black; border-radius: 2px;';
-      const tag = `<span style="background-color: ${color};${redial}">${f}</span>`;
-      outText = f !== '' && outText.includes(f) ? outText.replaceAll(f, tag) : outText;
-    })
-    return outText;
+    return highlightHtml(text, this.textFilterTree, isRedial);
   }
   isSelectedHexArray({ description }: any) {
     return this.selectedHexArray.map((i: any) => i.description).includes(description);
   }
-  treeFilter({ description: d, name: n }: any) {
+  treeFilter({ description: d, name: n, suffix }: any) {
     if (this.textFilterTree === '') {
       return true;
     }
-
+    const label = `${n}${suffix || ''}`;
     return this.bufferFiltered.find(({ name, description }) =>
-      d && d !== '' ? name + description === n + d : name === n);
+      d && d !== '' ? name + description === label + d : name === label);
   }
 
   filterGrid(details: any[]) {
