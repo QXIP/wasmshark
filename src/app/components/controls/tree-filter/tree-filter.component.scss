@@ -1,10 +1,8 @@
 @use 'sass:map';
-@use '@angular/material' as mat;
 @import "/src/theme.scss";
-$primary: map.get($my-theme, 'primary');
 
 .selected {
-  background-color: mat.get-color-from-palette($primary);
+  background-color: map.get($my-theme, primary);
   color: white;
 }
 
@@ -40,7 +38,7 @@ $primary: map.get($my-theme, 'primary');
     top: 0px;
     left: 0px;
     position: sticky;
-    background-color: mat.get-color-from-palette($primary, default-contrast);
+    background-color: white;
     width: 100%;
     z-index: 1;
     padding: 0.5rem;
