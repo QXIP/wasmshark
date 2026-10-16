@@ -24,6 +24,25 @@ export class TapPageComponent {
     void this.loadTapData(obj);
   }
 
+  private hasCaptureLoaded(): boolean {
+    return !!(this.wiregasmService.getCapture() || this.webSharkDataService.getCapture());
+  }
+
+  private async loadTapFromBackend(tapId: string): Promise<boolean> {
+    if (!tapId || !this.hasCaptureLoaded()) {
+      return false;
+    }
+    const data = await this.webSharkDataService.getTapJson(tapId);
+    const [tapData] = data?.taps || [];
+    if (!tapData) {
+      return false;
+    }
+    this.jsonData = tapData;
+    this.type = tapData.type || tapId;
+    this.title = this.title || tapData.name || tapData.proto || tapId;
+    return true;
+  }
+
   private async loadTapData(obj: any) {
     this.loading = true;
     this.jsonData = null;
@@ -35,25 +54,20 @@ export class TapPageComponent {
         return;
       }
 
+      const tapId = obj?.tap || this.type;
       if (this.type === 'rtp-streams') {
-        this.jsonData = obj?.jsonData || { streams: [] };
+        const loaded = await this.loadTapFromBackend('rtp-streams');
+        if (!loaded) {
+          this.jsonData = obj?.jsonData || { streams: [] };
+        }
         return;
       }
 
-      const tapId = obj?.tap || this.type;
       if (!tapId) {
         return;
       }
 
-      if (this.wiregasmService.getCapture()) {
-        const data = await this.webSharkDataService.getTapJson(tapId);
-        const [tapData] = data?.taps || [];
-        if (tapData) {
-          this.jsonData = tapData;
-          this.type = tapData.type || tapId;
-          this.title = this.title || tapData.name || tapData.proto || tapId;
-        }
-      }
+      await this.loadTapFromBackend(tapId);
     } catch (err) {
       console.error('tap-page load failed', err);
     } finally {
