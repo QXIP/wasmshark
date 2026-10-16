@@ -36,13 +36,19 @@ export class MenuStatComponent implements OnInit {
   async initMenu() {
     try {
       this.menuTreeIndex = [];
-      console.log('MENU:ngOnInit()', this.menu_data)
       const info = await this.webSharkDataService.getInfo();
-      const {
-        stats = [], nstat = [], convs = [],
-        seqa = [], taps = [], eo = [],
-        srt = [], rtd = []
-      } = this.menu_data;
+      const fallback = this.menu_data;
+      const pick = (live: any[] | undefined, key: keyof typeof fallback) =>
+        live?.length ? live : (fallback[key] as any[]) || [];
+
+      const convs = pick(info?.convs, 'convs');
+      const stats = pick(info?.stats, 'stats');
+      const nstat = pick(info?.nstat, 'nstat');
+      const taps = pick(info?.taps, 'taps');
+      const eo = pick(info?.eo, 'eo');
+      const srt = pick(info?.srt, 'srt');
+      const rtd = pick(info?.rtd, 'rtd');
+      const seqa = pick(info?.seqa, 'seqa');
 
       const menuCollection = [
         { name: 'Endpoints', children: [...convs] },
@@ -50,7 +56,7 @@ export class MenuStatComponent implements OnInit {
         { name: 'Statistics', children: [...stats, ...nstat, ...taps] },
         { name: 'Export Objects', children: [...eo] },
         { name: 'Misc', children: [...seqa] }
-      ].filter((section) => section.children?.length > 0);
+      ];
       this.menuTree = menuCollection;
 
       // console.log('menu', { menuCollection, menuTree: this.menuTree });
