@@ -33,9 +33,9 @@ export class TapRtpStreamsComponent implements OnInit {
 
   @Input() set data(val: any) {
     this._data = val;
-    this.streams = val.streams || [];
+    this.streams = (val?.streams || []).map((stream: any) => ({ ...stream }));
     const [stream] = this.streams || [];
-    this.columns = Object.keys(stream || []);
+    this.columns = Object.keys(stream || {}).filter((key) => key !== '__selected');
   }
   get data(): any {
     return this._data;
@@ -240,10 +240,18 @@ export class TapRtpStreamsComponent implements OnInit {
     this.players = this.players.filter((i, k) => k !== idx);
     this.cdr.detectChanges();
   }
-  async rowClick({ row }: any) {
-    // this.streams
-    console.log(this.streams, { row });
+  onSelectionChange() {
+    this.cdr.detectChanges();
+  }
 
+  onStreamRowActivate(row: any) {
+    if (!row?.__selected) {
+      return;
+    }
+    void this.rowClick({ row });
+  }
+
+  async rowClick({ row }: any) {
     const id = `player-${hash(JSON.stringify(row))}`;
     let playerElement = this.players.find(p => p.id === id);
     if (!playerElement) {

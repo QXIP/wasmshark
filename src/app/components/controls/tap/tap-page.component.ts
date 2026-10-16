@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { WebSharkDataService } from '@app/services/web-shark-data.service';
+import { WiregasmService } from '@app/services/wiregasm.service';
 
 @Component({
   selector: 'tap-page',
@@ -11,20 +13,51 @@ export class TapPageComponent {
   public jsonData: any = null;
   public type: string = '';
 
-  @Input() set taplink(obj: any) {
+  constructor(
+    private webSharkDataService: WebSharkDataService,
+    private wiregasmService: WiregasmService,
+  ) { }
 
-    this.title = obj.name;
-    this.type = obj?.type || obj?.tap;
-    this.jsonData = obj?.jsonData;
-    console.log('taplink ==> ', obj)
+  @Input() set taplink(obj: any) {
+    this.title = obj?.name || '';
+    this.type = obj?.type || obj?.tap || '';
+    void this.loadTapData(obj);
   }
-  async initData(link: string) {
-    const data: any = {}; // await this.webSharkDataService.getTapJson(link);
-    const [tapData] = data?.taps || [];
-    this.jsonData = tapData;
-    const { name, proto, type } = tapData || {};
-    this.title = (name || proto || '') + (type ? ` [${type}]` : '');
-    this.type = type || '';
-    this.loading = false;
+
+  private async loadTapData(obj: any) {
+    this.loading = true;
+    this.jsonData = null;
+    try {
+      if (this.type === 'flow') {
+        const nodes = this.wiregasmService.getHosts();
+        const flows = this.wiregasmService.getFlowItems();
+        this.jsonData = { nodes, flows };
+        return;
+      }
+
+      if (this.type === 'rtp-streams') {
+        this.jsonData = obj?.jsonData || { streams: [] };
+        return;
+      }
+
+      const tapId = obj?.tap || this.type;
+      if (!tapId) {
+        return;
+      }
+
+      if (this.wiregasmService.getCapture()) {
+        const data = await this.webSharkDataService.getTapJson(tapId);
+        const [tapData] = data?.taps || [];
+        if (tapData) {
+          this.jsonData = tapData;
+          this.type = tapData.type || tapId;
+          this.title = this.title || tapData.name || tapData.proto || tapId;
+        }
+      }
+    } catch (err) {
+      console.error('tap-page load failed', err);
+    } finally {
+      this.loading = false;
+    }
   }
 }

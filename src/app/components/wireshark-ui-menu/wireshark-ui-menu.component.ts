@@ -12,12 +12,11 @@ export class WiresharkUiMenuComponent {
   constructor(private modalResizableService: ModalResizableService) { }
 
   onMenuClick(item: any = null, options: any = null): void {
-    console.log('Menu item clicked:', item);
     this.modalResizableService.open({
       link: {
         name: item + '',
-        type: options?.type || '',
-        jsonData: options ? {}: null
+        type: options?.type || options?.tap || '',
+        tap: options?.tap || options?.type || '',
       }
     });
   }

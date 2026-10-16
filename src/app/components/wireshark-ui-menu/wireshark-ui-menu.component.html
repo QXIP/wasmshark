@@ -70,9 +70,9 @@
 <mat-menu #statisticsMenu="matMenu">
   <button mat-menu-item disabled (click)="onMenuClick($event)">Capture File Properties</button>
   <button mat-menu-item disabled (click)="onMenuClick($event)">Resolved Addresses</button>
-  <button mat-menu-item disabled (click)="onMenuClick($event)">Protocol Hierarchy</button>
-  <button mat-menu-item disabled (click)="onMenuClick($event)">Conversations</button>
-  <button mat-menu-item disabled (click)="onMenuClick($event)">Endpoints</button>
+  <button mat-menu-item (click)="onMenuClick('Protocol Hierarchy Statistics', { type: 'phs', tap: 'phs' })">Protocol Hierarchy</button>
+  <button mat-menu-item (click)="onMenuClick('Conversations', { type: 'conv', tap: 'conv:eth' })">Conversations</button>
+  <button mat-menu-item (click)="onMenuClick('Endpoints', { type: 'conv', tap: 'conv:endpoint' })">Endpoints</button>
   <button mat-menu-item disabled (click)="onMenuClick($event)">Packet Lengths</button>
   <button mat-menu-item [matMenuTriggerFor]="ioGraphMenu">I/O Graphs</button>
   <mat-menu #ioGraphMenu="matMenu">
@@ -107,7 +107,7 @@
       <button mat-menu-item disabled (click)="onMenuClick($event)">Round Trip Time</button>
       <button mat-menu-item disabled (click)="onMenuClick($event)">Throughput</button>
     </mat-menu>
-    <button mat-menu-item disabled (click)="onMenuClick($event)">UDP Multicast Streams</button>
+    <button mat-menu-item (click)="onMenuClick('UDP Multicast Streams', { type: 'multicast', tap: 'multicast' })">UDP Multicast Streams</button>
     <button mat-menu-item disabled (click)="onMenuClick($event)">Reliable Server Pooling</button>
     <button mat-menu-item disabled (click)="onMenuClick($event)">SOME/IP</button>
   </mat-menu>
@@ -143,13 +143,8 @@
 <mat-menu #toolsMenu="matMenu">
   <button mat-menu-item disabled (click)="onMenuClick($event)">Plugins</button>
   <button mat-menu-item disabled (click)="onMenuClick($event)">Lua Console</button>
-  <button mat-menu-item [matMenuTriggerFor]="expertInfoMenu">Expert
+  <button mat-menu-item (click)="onMenuClick('Expert Information', { type: 'expert', tap: 'expert' })">Expert
     Information</button>
-  <mat-menu #expertInfoMenu="matMenu">
-    <button mat-menu-item disabled (click)="onMenuClick($event)">Warnings</button>
-    <button mat-menu-item disabled (click)="onMenuClick($event)">Notes</button>
-    <button mat-menu-item disabled (click)="onMenuClick($event)">Details</button>
-  </mat-menu>
   <button mat-menu-item disabled (click)="onMenuClick($event)">Statistics Consoles</button>
   <button mat-menu-item [matMenuTriggerFor]="debuggingToolsMenu">Debugging
     Tools</button>

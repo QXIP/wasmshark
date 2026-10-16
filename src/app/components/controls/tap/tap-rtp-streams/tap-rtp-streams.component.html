@@ -1,27 +1,35 @@
-{{ streams | json }}
-
-<isData class="is-data-wrapper" [noDataIf]="false && streams.length === 0">
+<isData class="is-data-wrapper" [noDataIf]="isReady && streams.length === 0">
+  <p *ngIf="isReady && streams.length" class="rtp-hint">
+    Select streams with the checkboxes, then click a row to open the player and analysis for that RTP stream.
+  </p>
   <div
     *ngIf="isReady"
     style="height: calc(100% - 4rem); min-height: 200px; width: 100%"
   >
+    <div class="table-row-wrapper table-header" *ngIf="streams.length">
+      <div class="table-row" style="background: transparent">
+        <strong>Select</strong>
+      </div>
+      <div class="table-row" *ngFor="let col of columns">
+        <strong>{{ col }}</strong>
+      </div>
+    </div>
     <div
-      *ngFor="let item of streams; let odd = odd; let idx = index"
+      *ngFor="let item of streams; let idx = index"
       class="table-row-wrapper"
-      (click)="rowClick({ row: item })"
+      [class.row-selected]="item.__selected"
+      (click)="onStreamRowActivate(item)"
     >
       <div class="table-row" style="background: transparent">
         <mat-checkbox
           color="primary"
           [(ngModel)]="item.__selected"
           (click)="$event.stopPropagation()"
-
+          (change)="onSelectionChange()"
         ></mat-checkbox>
       </div>
-      <div *ngFor="let col of getKeys(item); let idx = index" class="table-row">
-        <!-- [style.flex]="false && idx === 3 ? 3 : 1" -->
-        <h3>{{ col }}:</h3>
-        <span style="float: right">{{ item[col] }}</span>
+      <div *ngFor="let col of getKeys(item)" class="table-row">
+        <span>{{ item[col] }}</span>
       </div>
     </div>
   </div>

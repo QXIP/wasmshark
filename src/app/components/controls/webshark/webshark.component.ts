@@ -76,7 +76,10 @@ export class WebsharkComponent implements OnInit, AfterViewInit {
   }
   ngOnInit() {
     this.textFilterGrid = this.webSharkDataService.getFilter();
-    this.webSharkDataService.updates.subscribe(() => this.initData());
+    this.webSharkDataService.updates.subscribe(() => {
+      this.textFilterGrid = this.webSharkDataService.getFilter();
+      this.initData();
+    });
   }
 
   onClickFile(filename: string) {
@@ -92,7 +95,7 @@ export class WebsharkComponent implements OnInit, AfterViewInit {
       const { bg, fg } = frame;
       return { id, time, source, description, protocol, length, info, bg, fg };
     });
-    this.detailsTable = this.destDetailsTable;
+    this.detailsTable = this.filterGrid(this.destDetailsTable);
     this.ready.emit([{
       color: 'rgba(255,255,255, 0.8)',
       data: this.destDetailsTable.map((i: any) => i.length * 1)
@@ -182,7 +185,9 @@ export class WebsharkComponent implements OnInit, AfterViewInit {
   }
   setFilter(filter: any) {
     this.textFilterGrid = filter;
-    // this.webSharkDataService.setFilter(this.textFilterGrid);
+    this.webSharkDataService.setFilter(this.textFilterGrid);
+    this.detailsTable = this.filterGrid(this.destDetailsTable);
+    this.cdr.detectChanges();
   }
   onFilterEnter() {
     this.setFilter(this.textFilterGrid);
