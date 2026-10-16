@@ -1,5 +1,4 @@
 @use "sass:map";
-@use "@angular/material" as mat;
 @import "/src/theme.scss";
 $primary: map.get($my-theme, primary);
 $bgColor: rgba(black, 0.12);
@@ -60,7 +59,7 @@ $bgColor: rgba(black, 0.12);
 
     &.active {
       flex: 7;
-      border-color: mat.get-color-from-palette($primary);
+      border-color: $primary;
     }
 
     .player-controls {
@@ -75,7 +74,7 @@ $bgColor: rgba(black, 0.12);
       right: 0;
       bottom: -2.5rem;
       border: 3px solid;
-      border-color: mat.get-color-from-palette($primary);
+      border-color: $primary;
       width: 14rem;
       opacity: 0;
       transition: opacity 0.3s;

@@ -69,11 +69,18 @@
               "outputHashing": "all"
             },
             "kiosk": {
+              "optimization": false,
+              "sourceMap": true,
+              "namedChunks": false,
+              "aot": false,
+              "extractLicenses": false,
+              "vendorChunk": false,
+              "buildOptimizer": false,
               "budgets": [
                 {
                   "type": "initial",
                   "maximumWarning": "5500kb",
-                  "maximumError": "10mb"
+                  "maximumError": "15mb"
                 },
                 {
                   "type": "anyComponentStyle",
